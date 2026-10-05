@@ -131,3 +131,18 @@ img {
     width: 22%;
     height: 35%;
 }
+/* Letter Quest */
+
+.letter-quest-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #8fdcff;
+}
+
+.letter-quest-background {
+    display: block;
+    width: 100%;
+    height: auto;
+}
