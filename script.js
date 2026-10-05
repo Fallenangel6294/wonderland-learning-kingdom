@@ -32,3 +32,36 @@ backToThroneRoom.addEventListener("click", function () {
     letterQuestScreen.style.display = "none";
     castleScreen.style.display = "block";
 });
+// Start Letter Quest
+
+const startLetterQuest = document.getElementById("startLetterQuest");
+const letterQuestWelcome = document.getElementById("letterQuestWelcome");
+
+startLetterQuest.addEventListener("click", function () {
+
+    letterQuestWelcome.innerHTML = `
+        <div class="quest-scroll">
+
+            <div class="scroll-content">
+
+                <h1>🔤 Find the Letter!</h1>
+
+                <p>
+                    Can you find the letter <strong>A</strong>?
+                </p>
+
+                <div class="letter-choices">
+
+                    <button class="letter-choice">A</button>
+                    <button class="letter-choice">M</button>
+                    <button class="letter-choice">S</button>
+                    <button class="letter-choice">T</button>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+});
