@@ -25,3 +25,28 @@ img {
     width: 100%;
     height: auto;
 }
+.kingdom {
+    position: relative;
+    width: 100%;
+}
+
+.kingdom-map {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.location-button {
+    position: absolute;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: transparent;
+}
+
+.castle-button {
+    left: 37%;
+    top: 19%;
+    width: 27%;
+    height: 31%;
+}
