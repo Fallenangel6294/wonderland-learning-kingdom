@@ -52,17 +52,44 @@ startLetterQuest.addEventListener("click", function () {
 
                 <div class="letter-choices">
 
-                    <button class="letter-choice">A</button>
+                    <button class="letter-choice" data-correct="true">A</button>
                     <button class="letter-choice">M</button>
                     <button class="letter-choice">S</button>
                     <button class="letter-choice">T</button>
 
                 </div>
 
+                <p class="answer-message" id="answerMessage"></p>
+
             </div>
 
         </div>
     `;
+
+    const letterChoices = document.querySelectorAll(".letter-choice");
+    const answerMessage = document.getElementById("answerMessage");
+
+    letterChoices.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            if (button.dataset.correct === "true") {
+
+                answerMessage.textContent = "🎉 Great job! You found A! ⭐";
+
+                answerMessage.className = "answer-message correct";
+
+            } else {
+
+                answerMessage.textContent = "🐰 Try again! You can do it!";
+
+                answerMessage.className = "answer-message try-again";
+
+            }
+
+        });
+
+    });
 
 });
 console.log("Letter Quest Start button connected!");
