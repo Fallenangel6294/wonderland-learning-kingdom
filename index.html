@@ -16,16 +16,41 @@
 
 <body>
 
-    <main class="kingdom">
+    <!-- Wonderland Kingdom Map -->
+    <main class="kingdom" id="kingdomScreen">
 
         <img
             src="wonderland-map.png"
             alt="Map of Wonderland Learning Kingdom"
             class="kingdom-map"
         >
-        <button class="location-button castle-button" id="storybookCastle">
-    Storybook Castle
-</button>
+
+        <button
+            class="location-button castle-button"
+            id="storybookCastle"
+            aria-label="Enter Storybook Castle"
+        >
+            Storybook Castle
+        </button>
+
+    </main>
+
+
+    <!-- Storybook Castle Interior -->
+    <main class="castle-screen" id="castleScreen">
+
+        <button
+            class="back-button"
+            id="backToKingdom"
+        >
+            ← Back to Wonderland
+        </button>
+
+        <img
+            src="castle-interior.png"
+            alt="Inside the Storybook Castle throne room"
+            class="castle-interior"
+        >
 
     </main>
 
