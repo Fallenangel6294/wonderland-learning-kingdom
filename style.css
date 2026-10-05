@@ -146,3 +146,158 @@ img {
     width: 100%;
     height: auto;
 }
+/* Letter Quest Welcome */
+
+.letter-quest-welcome {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 20px 40px;
+
+    z-index: 2;
+}
+
+.quest-scroll {
+    position: relative;
+
+    width: min(700px, 90%);
+    min-height: 420px;
+
+    padding: 70px 50px 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4c7 0%,
+            #f6d98b 45%,
+            #e8bd63 100%
+        );
+
+    border: 8px solid #a96832;
+    border-radius: 20px;
+
+    color: #4b2a18;
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.35),
+        inset 0 0 25px rgba(120, 70, 20, 0.25);
+
+    text-align: center;
+}
+
+/* Rolled ends of the scroll */
+
+.quest-scroll::before,
+.quest-scroll::after {
+    content: "";
+
+    position: absolute;
+
+    left: -18px;
+    right: -18px;
+
+    height: 48px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d99a4e,
+            #f3cf7c,
+            #c27a35
+        );
+
+    border: 5px solid #995d2c;
+    border-radius: 50%;
+
+    box-shadow:
+        0 8px 12px rgba(0, 0, 0, 0.25);
+}
+
+.quest-scroll::before {
+    top: -25px;
+}
+
+.quest-scroll::after {
+    bottom: -25px;
+}
+
+/* Scroll text */
+
+.scroll-content h1 {
+    margin: 0 0 20px;
+
+    font-size: clamp(36px, 6vw, 60px);
+
+    color: #6b318f;
+
+    text-shadow:
+        2px 2px 0 #ffffff,
+        0 4px 8px rgba(70, 30, 90, 0.25);
+}
+
+.scroll-content p {
+    margin: 12px 0;
+
+    font-size: clamp(20px, 3vw, 28px);
+
+    font-weight: bold;
+}
+
+.bunny-message {
+    margin-top: 30px !important;
+
+    color: #5b3a1f;
+}
+
+/* Start Quest button */
+
+.start-quest-button {
+    margin-top: 30px;
+
+    padding: 18px 34px;
+
+    border: 4px solid #ffffff;
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d4dcc,
+            #c45bea
+        );
+
+    color: white;
+
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 0 #632b8f,
+        0 12px 20px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.start-quest-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 0 #632b8f,
+        0 16px 25px rgba(0, 0, 0, 0.3);
+}
+
+.start-quest-button:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 5px 0 #632b8f,
+        0 8px 15px rgba(0, 0, 0, 0.25);
+}
