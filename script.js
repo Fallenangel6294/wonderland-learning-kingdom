@@ -32,58 +32,148 @@ backToThroneRoom.addEventListener("click", function () {
     letterQuestScreen.style.display = "none";
     castleScreen.style.display = "block";
 });
-// Start Letter Quest
+// Letter Quest Question Bank
+
+const letterQuestQuestions = [
+    {
+        question: "Can you find the letter A?",
+        choices: ["A", "M", "S", "T"],
+        correct: "A"
+    },
+
+    {
+        question: "Can you find the letter B?",
+        choices: ["D", "B", "P", "R"],
+        correct: "B"
+    },
+
+    {
+        question: "Can you find the letter C?",
+        choices: ["O", "G", "C", "Q"],
+        correct: "C"
+    },
+
+    {
+        question: "Can you find the letter D?",
+        choices: ["B", "P", "D", "O"],
+        correct: "D"
+    },
+
+    {
+        question: "Can you find the letter E?",
+        choices: ["F", "E", "I", "L"],
+        correct: "E"
+    }
+];
+
+
+// Letter Quest Game
 
 const startLetterQuest = document.getElementById("startLetterQuest");
 const letterQuestWelcome = document.getElementById("letterQuestWelcome");
 
+let currentQuestion = null;
+
+
+// Start the quest
+
 startLetterQuest.addEventListener("click", function () {
+
+    showNextQuestion();
+
+});
+
+
+// Show a question
+
+function showNextQuestion() {
+
+    const randomIndex = Math.floor(
+        Math.random() * letterQuestQuestions.length
+    );
+
+    currentQuestion = letterQuestQuestions[randomIndex];
+
+    let choicesHTML = "";
+
+    currentQuestion.choices.forEach(function (choice) {
+
+        choicesHTML += `
+            <button
+                class="letter-choice"
+                data-answer="${choice}"
+            >
+                ${choice}
+            </button>
+        `;
+
+    });
+
 
     letterQuestWelcome.innerHTML = `
         <div class="quest-scroll">
 
             <div class="scroll-content">
 
-                <h1>🔤 Find the Letter!</h1>
+                <h1>🔤 Letter Quest</h1>
 
                 <p>
-                    Can you find the letter <strong>A</strong>?
+                    ${currentQuestion.question}
                 </p>
 
                 <div class="letter-choices">
-
-                    <button class="letter-choice" data-correct="true">A</button>
-                    <button class="letter-choice">M</button>
-                    <button class="letter-choice">S</button>
-                    <button class="letter-choice">T</button>
-
+                    ${choicesHTML}
                 </div>
 
-                <p class="answer-message" id="answerMessage"></p>
+                <p
+                    class="answer-message"
+                    id="answerMessage"
+                ></p>
 
             </div>
 
         </div>
     `;
 
-    const letterChoices = document.querySelectorAll(".letter-choice");
-    const answerMessage = document.getElementById("answerMessage");
+
+    const letterChoices =
+        document.querySelectorAll(".letter-choice");
+
+    const answerMessage =
+        document.getElementById("answerMessage");
+
 
     letterChoices.forEach(function (button) {
 
         button.addEventListener("click", function () {
 
-            if (button.dataset.correct === "true") {
+            const selectedAnswer =
+                button.dataset.answer;
 
-                answerMessage.textContent = "🎉 Great job! You found A! ⭐";
 
-                answerMessage.className = "answer-message correct";
+            if (selectedAnswer === currentQuestion.correct) {
+
+                answerMessage.textContent =
+                    "🎉 Great job! ⭐";
+
+                answerMessage.className =
+                    "answer-message correct";
+
+
+                setTimeout(function () {
+
+                    showNextQuestion();
+
+                }, 1000);
+
 
             } else {
 
-                answerMessage.textContent = "🐰 Try again! You can do it!";
+                answerMessage.textContent =
+                    "🐰 Try again! You can do it!";
 
-                answerMessage.className = "answer-message try-again";
+                answerMessage.className =
+                    "answer-message try-again";
 
             }
 
@@ -91,5 +181,5 @@ startLetterQuest.addEventListener("click", function () {
 
     });
 
-});
+}
 console.log("Letter Quest Start button connected!");
