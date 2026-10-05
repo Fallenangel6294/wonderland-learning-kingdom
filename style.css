@@ -437,3 +437,31 @@ img {
     cursor: default;
     opacity: 0.7;
 }
+/* Letter Quest Celebration */
+
+.final-stars {
+    margin: 25px 0 !important;
+
+    font-size: clamp(30px, 6vw, 48px) !important;
+    letter-spacing: 5px;
+
+    animation: starCelebrate 1s ease-in-out infinite alternate;
+}
+
+@keyframes starCelebrate {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+#playAgainButton {
+    margin-top: 25px;
+}
+
+#playAgainButton:hover {
+    transform: translateY(-4px) scale(1.03);
+}
