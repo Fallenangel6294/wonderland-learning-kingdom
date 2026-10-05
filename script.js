@@ -255,12 +255,23 @@ function showQuestComplete() {
                     You earned ${starsEarned} Learning Stars!
                 </p>
 
-                <button
-                    class="start-quest-button"
-                    id="playAgainButton"
-                >
-                    🔄 PLAY AGAIN
-                </button>
+               <div class="quest-complete-buttons">
+
+    <button
+        class="start-quest-button"
+        id="playAgainButton"
+    >
+        🔄 PLAY AGAIN
+    </button>
+
+    <button
+        class="castle-return-button"
+        id="returnToCastleButton"
+    >
+        🏰 RETURN TO CASTLE
+    </button>
+
+</div>
 
             </div>
 
@@ -270,10 +281,18 @@ function showQuestComplete() {
 
     const playAgainButton =
         document.getElementById("playAgainButton");
-
+    
+const returnToCastleButton =
+    document.getElementById("returnToCastleButton");
 
     playAgainButton.addEventListener("click", function () {
 
+        returnToCastleButton.addEventListener("click", function () {
+
+    letterQuestScreen.style.display = "none";
+    castleScreen.style.display = "block";
+
+});
         currentQuestionNumber = 0;
         starsEarned = 0;
 
