@@ -295,18 +295,11 @@ function showQuestComplete() {
 
     });
 
+returnToCastleButton.addEventListener("click", function () {
 
-    // Return to Castle
+    backToThroneRoom.click();
 
-    returnToCastleButton.addEventListener("click", function () {
-
-        letterQuestScreen.style.display = "none";
-
-        castleScreen.style.display = "block";
-
-    });
-
-}
+});    
 
 
 console.log("Letter Quest Start button connected!");
