@@ -87,3 +87,47 @@ img {
 .back-button:hover {
     background: #7b43aa;
 }
+/* Throne Buttons */
+
+.throne-button {
+    position: absolute;
+
+    border: none;
+    background: transparent;
+
+    color: transparent;
+
+    cursor: pointer;
+}
+
+/* King - Story Time */
+.king-throne {
+    left: 19%;
+    top: 43%;
+    width: 22%;
+    height: 35%;
+}
+
+/* Queen - Letter Quest */
+.queen-throne {
+    left: 35%;
+    top: 43%;
+    width: 22%;
+    height: 35%;
+}
+
+/* Prince - Word Match */
+.prince-throne {
+    left: 51%;
+    top: 43%;
+    width: 22%;
+    height: 35%;
+}
+
+/* Princess - Spelling Workshop */
+.princess-throne {
+    left: 67%;
+    top: 43%;
+    width: 22%;
+    height: 35%;
+}
