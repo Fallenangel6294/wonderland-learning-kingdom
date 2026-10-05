@@ -65,3 +65,4 @@ startLetterQuest.addEventListener("click", function () {
     `;
 
 });
+console.log("Letter Quest Start button connected!");
