@@ -69,32 +69,58 @@ const letterQuestQuestions = [
 
 // Letter Quest Game
 
-const startLetterQuest = document.getElementById("startLetterQuest");
-const letterQuestWelcome = document.getElementById("letterQuestWelcome");
+const startLetterQuest =
+    document.getElementById("startLetterQuest");
+
+const letterQuestWelcome =
+    document.getElementById("letterQuestWelcome");
 
 let currentQuestion = null;
+
+let currentQuestionNumber = 0;
+
+let starsEarned = 0;
+
+const questionsPerQuest = 5;
 
 
 // Start the quest
 
 startLetterQuest.addEventListener("click", function () {
 
+    currentQuestionNumber = 0;
+    starsEarned = 0;
+
     showNextQuestion();
 
 });
 
 
-// Show a question
+// Show the next question
 
 function showNextQuestion() {
+
+    if (currentQuestionNumber >= questionsPerQuest) {
+
+        showQuestComplete();
+
+        return;
+    }
+
+
+    currentQuestionNumber++;
+
 
     const randomIndex = Math.floor(
         Math.random() * letterQuestQuestions.length
     );
 
-    currentQuestion = letterQuestQuestions[randomIndex];
+    currentQuestion =
+        letterQuestQuestions[randomIndex];
+
 
     let choicesHTML = "";
+
 
     currentQuestion.choices.forEach(function (choice) {
 
@@ -116,6 +142,14 @@ function showNextQuestion() {
             <div class="scroll-content">
 
                 <h1>🔤 Letter Quest</h1>
+
+                <p class="question-counter">
+                    Question ${currentQuestionNumber} of ${questionsPerQuest}
+                </p>
+
+                <p class="star-counter">
+                    ⭐ ${starsEarned}
+                </p>
 
                 <p>
                     ${currentQuestion.question}
@@ -151,13 +185,27 @@ function showNextQuestion() {
                 button.dataset.answer;
 
 
-            if (selectedAnswer === currentQuestion.correct) {
+            if (
+                selectedAnswer ===
+                currentQuestion.correct
+            ) {
+
+                starsEarned++;
+
 
                 answerMessage.textContent =
                     "🎉 Great job! ⭐";
 
+
                 answerMessage.className =
                     "answer-message correct";
+
+
+                letterChoices.forEach(function (choiceButton) {
+
+                    choiceButton.disabled = true;
+
+                });
 
 
                 setTimeout(function () {
@@ -178,6 +226,58 @@ function showNextQuestion() {
             }
 
         });
+
+    });
+
+}
+
+
+// Quest complete screen
+
+function showQuestComplete() {
+
+    letterQuestWelcome.innerHTML = `
+        <div class="quest-scroll">
+
+            <div class="scroll-content">
+
+                <h1>🎉 Quest Complete! 🎉</h1>
+
+                <p>
+                    You did it!
+                </p>
+
+                <p class="final-stars">
+                    ⭐ ⭐ ⭐ ⭐ ⭐
+                </p>
+
+                <p>
+                    You earned ${starsEarned} Learning Stars!
+                </p>
+
+                <button
+                    class="start-quest-button"
+                    id="playAgainButton"
+                >
+                    🔄 PLAY AGAIN
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+
+    const playAgainButton =
+        document.getElementById("playAgainButton");
+
+
+    playAgainButton.addEventListener("click", function () {
+
+        currentQuestionNumber = 0;
+        starsEarned = 0;
+
+        showNextQuestion();
 
     });
 
