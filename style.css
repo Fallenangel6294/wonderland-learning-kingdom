@@ -465,3 +465,57 @@ img {
 #playAgainButton:hover {
     transform: translateY(-4px) scale(1.03);
 }
+/* Quest Complete Buttons */
+
+.quest-complete-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+.castle-return-button {
+    padding: 16px 30px;
+
+    border: 4px solid #ffffff;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #3f9bdf,
+        #5bc0eb
+    );
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 0 #2671a8,
+        0 10px 18px rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.castle-return-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 0 #2671a8,
+        0 14px 22px rgba(0, 0, 0, 0.28);
+}
+
+.castle-return-button:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 3px 0 #2671a8,
+        0 6px 12px rgba(0, 0, 0, 0.2);
+}
