@@ -297,9 +297,12 @@ function showQuestComplete() {
 
 returnToCastleButton.addEventListener("click", function () {
 
-    backToThroneRoom.click();
+    console.log("RETURN TO CASTLE CLICKED!");
 
-});    
+    letterQuestScreen.style.display = "none";
+    castleScreen.style.display = "block";
+
+});
 
 
 console.log("Letter Quest Start button connected!");
