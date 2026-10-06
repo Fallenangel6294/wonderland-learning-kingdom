@@ -172,6 +172,8 @@ let currentQuestionNumber = 0;
 
 let starsEarned = 0;
 
+let usedQuestionIndexes = [];
+
 const questionsPerQuest = 5;
 
 
@@ -181,6 +183,7 @@ startLetterQuest.addEventListener("click", function () {
 
     currentQuestionNumber = 0;
     starsEarned = 0;
+    usedQuestionIndexes = [];
 
     showNextQuestion();
 
@@ -202,13 +205,30 @@ function showNextQuestion() {
     currentQuestionNumber++;
 
 
-    const randomIndex = Math.floor(
-        Math.random() * letterQuestQuestions.length
-    );
+    let availableQuestionIndexes = [];
 
-    currentQuestion =
-        letterQuestQuestions[randomIndex];
+letterQuestQuestions.forEach(function (question, index) {
 
+    if (!usedQuestionIndexes.includes(index)) {
+        availableQuestionIndexes.push(index);
+    }
+
+});
+
+
+const randomPosition = Math.floor(
+    Math.random() * availableQuestionIndexes.length
+);
+
+const randomIndex =
+    availableQuestionIndexes[randomPosition];
+
+
+usedQuestionIndexes.push(randomIndex);
+
+
+currentQuestion =
+    letterQuestQuestions[randomIndex];
 
     let choicesHTML = "";
 
@@ -379,12 +399,13 @@ function showQuestComplete() {
 
     playAgainButton.addEventListener("click", function () {
 
-        currentQuestionNumber = 0;
-        starsEarned = 0;
+    currentQuestionNumber = 0;
+    starsEarned = 0;
+    usedQuestionIndexes = [];
 
-        showNextQuestion();
+    showNextQuestion();
 
-    });
+});
     returnToCastleButton.addEventListener("click", function () {
 
         console.log("RETURN TO CASTLE CLICKED!");
