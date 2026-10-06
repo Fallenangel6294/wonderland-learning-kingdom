@@ -154,7 +154,7 @@ const letterQuestQuestions = [
         question: "Can you find the letter Z?",
         choices: ["S", "Z", "N", "X"],
         correct: "Z"
-    }
+    },
     {
         skill: "uppercase-lowercase",
         question: "Which lowercase letter matches A?",
@@ -544,20 +544,9 @@ function showQuestComplete() {
     showNextQuestion();
 
 });
-    returnToCastleButton.addEventListener("click", function () {
+   returnToCastleButton.addEventListener("click", function () {
 
-        console.log("RETURN TO CASTLE CLICKED!");
+    letterQuestScreen.style.display = "none";
+    castleScreen.style.display = "block";
 
-        letterQuestScreen.style.display = "none";
-        castleScreen.style.display = "block";
-
-    });
-
-    returnToCastleButton.addEventListener("click", function () {
-
-        letterQuestScreen.style.display = "none";
-        castleScreen.style.display = "block";
-
-    });
-
-}
+});
