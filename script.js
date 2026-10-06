@@ -660,15 +660,12 @@ function showQuestComplete() {
 
     playAgainButton.addEventListener("click", function () {
 
-        currentQuestionNumber = 0;
+    currentQuestionNumber = 0;
+    starsEarned = 0;
+    usedQuestionIndexes = [];
 
-        starsEarned = 0;
-
-        usedQuestionIndexes = [];
-
-        showNextQuestion();
-
-    });
+    showSkillSelection();
+});
 
 
     returnToCastleButton.addEventListener("click", function () {
