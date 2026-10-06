@@ -35,6 +35,7 @@ backToThroneRoom.addEventListener("click", function () {
 // Letter Quest Question Bank
 
 const letterQuestQuestions = [
+
     {
         question: "Can you find the letter A?",
         choices: ["A", "M", "S", "T"],
@@ -63,9 +64,99 @@ const letterQuestQuestions = [
         question: "Can you find the letter E?",
         choices: ["F", "E", "I", "L"],
         correct: "E"
-    }
-];
+    },
 
+    {
+        question: "Can you find the letter F?",
+        choices: ["T", "P", "F", "E"],
+        correct: "F"
+    },
+
+    {
+        question: "Can you find the letter G?",
+        choices: ["C", "G", "O", "Q"],
+        correct: "G"
+    },
+
+    {
+        question: "Can you find the letter H?",
+        choices: ["N", "H", "M", "K"],
+        correct: "H"
+    },
+
+    {
+        question: "Can you find the letter I?",
+        choices: ["L", "I", "T", "J"],
+        correct: "I"
+    },
+
+    {
+        question: "Can you find the letter J?",
+        choices: ["I", "J", "G", "L"],
+        correct: "J"
+    },
+
+    {
+        question: "Can you find the letter K?",
+        choices: ["H", "K", "R", "X"],
+        correct: "K"
+    },
+
+    {
+        question: "Can you find the letter L?",
+        choices: ["I", "T", "L", "F"],
+        correct: "L"
+    },
+
+    {
+        question: "Can you find the letter M?",
+        choices: ["N", "W", "M", "H"],
+        correct: "M"
+    },
+
+    {
+        question: "Can you find the letter N?",
+        choices: ["M", "H", "N", "W"],
+        correct: "N"
+    },
+
+    {
+        question: "Can you find the letter O?",
+        choices: ["Q", "C", "O", "D"],
+        correct: "O"
+    },
+
+    {
+        question: "Can you find the letter P?",
+        choices: ["B", "P", "R", "D"],
+        correct: "P"
+    },
+
+    {
+        question: "Can you find the letter R?",
+        choices: ["P", "B", "R", "K"],
+        correct: "R"
+    },
+
+    {
+        question: "Can you find the letter S?",
+        choices: ["C", "S", "Z", "G"],
+        correct: "S"
+    },
+
+    {
+        question: "Can you find the letter T?",
+        choices: ["I", "F", "T", "L"],
+        correct: "T"
+    },
+
+    {
+        question: "Can you find the letter Z?",
+        choices: ["S", "Z", "N", "X"],
+        correct: "Z"
+    }
+
+];
 
 // Letter Quest Game
 
