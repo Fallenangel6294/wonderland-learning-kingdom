@@ -294,15 +294,20 @@ function showQuestComplete() {
         showNextQuestion();
 
     });
+    returnToCastleButton.addEventListener("click", function () {
 
-returnToCastleButton.addEventListener("click", function () {
+        console.log("RETURN TO CASTLE CLICKED!");
 
-    console.log("RETURN TO CASTLE CLICKED!");
+        letterQuestScreen.style.display = "none";
+        castleScreen.style.display = "block";
 
-    letterQuestScreen.style.display = "none";
-    castleScreen.style.display = "block";
+    });
 
-});
+    returnToCastleButton.addEventListener("click", function () {
 
+        letterQuestScreen.style.display = "none";
+        castleScreen.style.display = "block";
 
-console.log("Letter Quest Start button connected!");
+    });
+
+}
