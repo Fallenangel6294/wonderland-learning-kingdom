@@ -387,24 +387,62 @@ const questionsPerQuest = 5;
 // ================================
 // START QUEST
 // ================================
-
+    
 startLetterQuest.addEventListener("click", function () {
-
-    currentQuestionNumber = 0;
-
-    starsEarned = 0;
-
-    usedQuestionIndexes = [];
-
-    showNextQuestion();
-
+    showSkillSelection();
 });
 
 
 // ================================
 // SHOW NEXT QUESTION
 // ================================
+function showSkillSelection() {
 
+    letterQuestWelcome.innerHTML = `
+        <div class="quest-scroll">
+            <div class="scroll-content">
+
+                <h1>🔤 Letter Quest</h1>
+
+                <p>
+                    🐰 What would you like to practice?
+                </p>
+
+                <div class="skill-choices">
+
+                    <button class="skill-button" data-skill="find-letter">
+                        🔎 Find the Letter
+                    </button>
+
+                    <button class="skill-button" data-skill="uppercase-lowercase">
+                        🔡 Uppercase & Lowercase
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    `;
+
+    const skillButtons =
+        document.querySelectorAll(".skill-button");
+
+    skillButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            currentSkill =
+                button.dataset.skill;
+
+            currentQuestionNumber = 0;
+            starsEarned = 0;
+            usedQuestionIndexes = [];
+
+            showNextQuestion();
+        });
+
+    });
+}
 function showNextQuestion() {
 
     if (currentQuestionNumber >= questionsPerQuest) {
