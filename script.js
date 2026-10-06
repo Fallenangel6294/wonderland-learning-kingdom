@@ -379,7 +379,7 @@ let starsEarned = 0;
 
 let usedQuestionIndexes = [];
 
-let currentSkill = "find-letter";
+let currentSkill = "uppercase-lowercase";
 
 const questionsPerQuest = 5;
 
