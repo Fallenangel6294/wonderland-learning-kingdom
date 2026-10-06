@@ -1,161 +1,223 @@
 // Wonderland Learning Kingdom
 
-const kingdomScreen = document.getElementById("kingdomScreen");
-const castleScreen = document.getElementById("castleScreen");
 
-const storybookCastle = document.getElementById("storybookCastle");
-const backToKingdom = document.getElementById("backToKingdom");
+// ================================
+// MAIN SCREEN NAVIGATION
+// ================================
 
-const letterQuestScreen = document.getElementById("letterQuestScreen");
+const kingdomScreen =
+    document.getElementById("kingdomScreen");
 
-const letterQuestButton = document.getElementById("letterQuestButton");
-const backToThroneRoom = document.getElementById("backToThroneRoom");
+const castleScreen =
+    document.getElementById("castleScreen");
+
+const storybookCastle =
+    document.getElementById("storybookCastle");
+
+const backToKingdom =
+    document.getElementById("backToKingdom");
+
+const letterQuestScreen =
+    document.getElementById("letterQuestScreen");
+
+const letterQuestButton =
+    document.getElementById("letterQuestButton");
+
+const backToThroneRoom =
+    document.getElementById("backToThroneRoom");
+
+
 // Enter Storybook Castle
+
 storybookCastle.addEventListener("click", function () {
+
     kingdomScreen.style.display = "none";
     castleScreen.style.display = "block";
+
 });
 
-// Return to Wonderland map
+
+// Return to Wonderland Map
+
 backToKingdom.addEventListener("click", function () {
+
     castleScreen.style.display = "none";
     kingdomScreen.style.display = "block";
-});
-// Enter Letter Quest
-letterQuestButton.addEventListener("click", function () {
-    castleScreen.style.display = "none";
-    letterQuestScreen.style.display = "block";
+
 });
 
+
+// Enter Letter Quest
+
+letterQuestButton.addEventListener("click", function () {
+
+    castleScreen.style.display = "none";
+    letterQuestScreen.style.display = "block";
+
+});
+
+
 // Return to Throne Room
+
 backToThroneRoom.addEventListener("click", function () {
+
     letterQuestScreen.style.display = "none";
     castleScreen.style.display = "block";
+
 });
-// Letter Quest Question Bank
+
+
+// ================================
+// LETTER QUEST QUESTION BANK
+// ================================
 
 const letterQuestQuestions = [
 
+    // FIND THE LETTER
+
     {
+        skill: "find-letter",
         question: "Can you find the letter A?",
         choices: ["A", "M", "S", "T"],
         correct: "A"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter B?",
         choices: ["D", "B", "P", "R"],
         correct: "B"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter C?",
         choices: ["O", "G", "C", "Q"],
         correct: "C"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter D?",
         choices: ["B", "P", "D", "O"],
         correct: "D"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter E?",
         choices: ["F", "E", "I", "L"],
         correct: "E"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter F?",
         choices: ["T", "P", "F", "E"],
         correct: "F"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter G?",
         choices: ["C", "G", "O", "Q"],
         correct: "G"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter H?",
         choices: ["N", "H", "M", "K"],
         correct: "H"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter I?",
         choices: ["L", "I", "T", "J"],
         correct: "I"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter J?",
         choices: ["I", "J", "G", "L"],
         correct: "J"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter K?",
         choices: ["H", "K", "R", "X"],
         correct: "K"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter L?",
         choices: ["I", "T", "L", "F"],
         correct: "L"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter M?",
         choices: ["N", "W", "M", "H"],
         correct: "M"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter N?",
         choices: ["M", "H", "N", "W"],
         correct: "N"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter O?",
         choices: ["Q", "C", "O", "D"],
         correct: "O"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter P?",
         choices: ["B", "P", "R", "D"],
         correct: "P"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter R?",
         choices: ["P", "B", "R", "K"],
         correct: "R"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter S?",
         choices: ["C", "S", "Z", "G"],
         correct: "S"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter T?",
         choices: ["I", "F", "T", "L"],
         correct: "T"
     },
 
     {
+        skill: "find-letter",
         question: "Can you find the letter Z?",
         choices: ["S", "Z", "N", "X"],
         correct: "Z"
     },
-    
+
+
+    // UPPERCASE & LOWERCASE
+
     {
         skill: "uppercase-lowercase",
         question: "Which lowercase letter matches A?",
@@ -294,10 +356,14 @@ const letterQuestQuestions = [
         question: "Which lowercase letter matches Z?",
         choices: ["s", "z", "n", "x"],
         correct: "z"
-    },
+    }
+
 ];
 
-// Letter Quest Game
+
+// ================================
+// LETTER QUEST GAME
+// ================================
 
 const startLetterQuest =
     document.getElementById("startLetterQuest");
@@ -316,12 +382,16 @@ let usedQuestionIndexes = [];
 const questionsPerQuest = 5;
 
 
-// Start the quest
+// ================================
+// START QUEST
+// ================================
 
 startLetterQuest.addEventListener("click", function () {
 
     currentQuestionNumber = 0;
+
     starsEarned = 0;
+
     usedQuestionIndexes = [];
 
     showNextQuestion();
@@ -329,7 +399,9 @@ startLetterQuest.addEventListener("click", function () {
 });
 
 
-// Show the next question
+// ================================
+// SHOW NEXT QUESTION
+// ================================
 
 function showNextQuestion() {
 
@@ -338,6 +410,7 @@ function showNextQuestion() {
         showQuestComplete();
 
         return;
+
     }
 
 
@@ -346,28 +419,33 @@ function showNextQuestion() {
 
     let availableQuestionIndexes = [];
 
-letterQuestQuestions.forEach(function (question, index) {
 
-    if (!usedQuestionIndexes.includes(index)) {
-        availableQuestionIndexes.push(index);
-    }
+    letterQuestQuestions.forEach(function (question, index) {
 
-});
+        if (!usedQuestionIndexes.includes(index)) {
 
+            availableQuestionIndexes.push(index);
 
-const randomPosition = Math.floor(
-    Math.random() * availableQuestionIndexes.length
-);
+        }
 
-const randomIndex =
-    availableQuestionIndexes[randomPosition];
+    });
 
 
-usedQuestionIndexes.push(randomIndex);
+    const randomPosition = Math.floor(
+        Math.random() * availableQuestionIndexes.length
+    );
 
 
-currentQuestion =
-    letterQuestQuestions[randomIndex];
+    const randomIndex =
+        availableQuestionIndexes[randomPosition];
+
+
+    usedQuestionIndexes.push(randomIndex);
+
+
+    currentQuestion =
+        letterQuestQuestions[randomIndex];
+
 
     let choicesHTML = "";
 
@@ -480,6 +558,12 @@ currentQuestion =
     });
 
 }
+
+
+// ================================
+// QUEST COMPLETE
+// ================================
+
 function showQuestComplete() {
 
     letterQuestWelcome.innerHTML = `
@@ -525,8 +609,6 @@ function showQuestComplete() {
     `;
 
 
-    // Find the new buttons
-
     const playAgainButton =
         document.getElementById("playAgainButton");
 
@@ -534,20 +616,25 @@ function showQuestComplete() {
         document.getElementById("returnToCastleButton");
 
 
-    // Play Again
-
     playAgainButton.addEventListener("click", function () {
 
-    currentQuestionNumber = 0;
-    starsEarned = 0;
-    usedQuestionIndexes = [];
+        currentQuestionNumber = 0;
 
-    showNextQuestion();
+        starsEarned = 0;
 
-});
-   returnToCastleButton.addEventListener("click", function () {
+        usedQuestionIndexes = [];
 
-    letterQuestScreen.style.display = "none";
-    castleScreen.style.display = "block";
+        showNextQuestion();
 
-});
+    });
+
+
+    returnToCastleButton.addEventListener("click", function () {
+
+        letterQuestScreen.style.display = "none";
+
+        castleScreen.style.display = "block";
+
+    });
+
+}
