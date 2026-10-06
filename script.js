@@ -356,7 +356,130 @@ const letterQuestQuestions = [
         question: "Which lowercase letter matches Z?",
         choices: ["s", "z", "n", "x"],
         correct: "z"
-    }
+    },
+
+    // LETTER → PICTURE
+
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐶 DOG begin with?",
+    choices: ["D", "B", "M", "S"],
+    correct: "D"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐱 CAT begin with?",
+    choices: ["C", "T", "B", "L"],
+    correct: "C"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🍎 APPLE begin with?",
+    choices: ["A", "P", "E", "O"],
+    correct: "A"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐻 BEAR begin with?",
+    choices: ["B", "D", "R", "M"],
+    correct: "B"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does ☀️ SUN begin with?",
+    choices: ["S", "F", "T", "C"],
+    correct: "S"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐟 FISH begin with?",
+    choices: ["F", "S", "P", "B"],
+    correct: "F"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐰 BUNNY begin with?",
+    choices: ["B", "D", "M", "N"],
+    correct: "B"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐢 TURTLE begin with?",
+    choices: ["T", "C", "B", "D"],
+    correct: "T"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🦁 LION begin with?",
+    choices: ["L", "M", "I", "R"],
+    correct: "L"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐘 ELEPHANT begin with?",
+    choices: ["E", "L", "F", "A"],
+    correct: "E"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐸 FROG begin with?",
+    choices: ["F", "G", "R", "B"],
+    correct: "F"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐝 BEE begin with?",
+    choices: ["B", "D", "P", "E"],
+    correct: "B"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐍 SNAKE begin with?",
+    choices: ["S", "C", "N", "B"],
+    correct: "S"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐒 MONKEY begin with?",
+    choices: ["M", "N", "B", "K"],
+    correct: "M"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🦆 DUCK begin with?",
+    choices: ["D", "B", "C", "T"],
+    correct: "D"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🌙 MOON begin with?",
+    choices: ["M", "N", "S", "O"],
+    correct: "M"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🌸 FLOWER begin with?",
+    choices: ["F", "L", "B", "W"],
+    correct: "F"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🐴 HORSE begin with?",
+    choices: ["H", "F", "R", "S"],
+    correct: "H"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🦄 UNICORN begin with?",
+    choices: ["U", "C", "N", "Y"],
+    correct: "U"
+},
+{
+    skill: "letter-picture",
+    question: "Which letter does 🍌 BANANA begin with?",
+    choices: ["B", "A", "N", "C"],
+    correct: "B"
+},
 
 ];
 
