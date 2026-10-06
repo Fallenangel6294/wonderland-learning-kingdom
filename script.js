@@ -379,6 +379,8 @@ let starsEarned = 0;
 
 let usedQuestionIndexes = [];
 
+let currentSkill = "find-letter";
+
 const questionsPerQuest = 5;
 
 
@@ -419,16 +421,18 @@ function showNextQuestion() {
 
     let availableQuestionIndexes = [];
 
+letterQuestQuestions.forEach(function (question, index) {
 
-    letterQuestQuestions.forEach(function (question, index) {
+    if (
+        question.skill === currentSkill &&
+        !usedQuestionIndexes.includes(index)
+    ) {
 
-        if (!usedQuestionIndexes.includes(index)) {
+        availableQuestionIndexes.push(index);
 
-            availableQuestionIndexes.push(index);
+    }
 
-        }
-
-    });
+});
 
 
     const randomPosition = Math.floor(
