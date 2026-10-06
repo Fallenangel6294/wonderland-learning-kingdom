@@ -155,7 +155,145 @@ const letterQuestQuestions = [
         choices: ["S", "Z", "N", "X"],
         correct: "Z"
     }
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches A?",
+        choices: ["a", "m", "s", "t"],
+        correct: "a"
+    },
 
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches B?",
+        choices: ["d", "b", "p", "r"],
+        correct: "b"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches C?",
+        choices: ["o", "g", "c", "q"],
+        correct: "c"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches D?",
+        choices: ["b", "p", "d", "o"],
+        correct: "d"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches E?",
+        choices: ["f", "e", "i", "l"],
+        correct: "e"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches F?",
+        choices: ["t", "p", "f", "e"],
+        correct: "f"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches G?",
+        choices: ["c", "g", "o", "q"],
+        correct: "g"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches H?",
+        choices: ["n", "h", "m", "k"],
+        correct: "h"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches I?",
+        choices: ["l", "i", "t", "j"],
+        correct: "i"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches J?",
+        choices: ["i", "j", "g", "l"],
+        correct: "j"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches K?",
+        choices: ["h", "k", "r", "x"],
+        correct: "k"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches L?",
+        choices: ["i", "t", "l", "f"],
+        correct: "l"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches M?",
+        choices: ["n", "w", "m", "h"],
+        correct: "m"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches N?",
+        choices: ["m", "h", "n", "w"],
+        correct: "n"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches O?",
+        choices: ["q", "c", "o", "d"],
+        correct: "o"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches P?",
+        choices: ["b", "p", "r", "d"],
+        correct: "p"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches R?",
+        choices: ["p", "b", "r", "k"],
+        correct: "r"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches S?",
+        choices: ["c", "s", "z", "g"],
+        correct: "s"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches T?",
+        choices: ["i", "f", "t", "l"],
+        correct: "t"
+    },
+
+    {
+        skill: "uppercase-lowercase",
+        question: "Which lowercase letter matches Z?",
+        choices: ["s", "z", "n", "x"],
+        correct: "z"
+    },
 ];
 
 // Letter Quest Game
