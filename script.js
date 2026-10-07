@@ -1062,9 +1062,8 @@ function showSkillSelection() {
                     "answer-message try-again";
             }
 
-        });
-
-    }
+               });
+    });
 }
 
 function showNextQuestion() {
