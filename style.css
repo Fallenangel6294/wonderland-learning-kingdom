@@ -564,3 +564,60 @@ img {
         0 3px 0 #632b8f,
         0 7px 12px rgba(0, 0, 0, 0.2);
 }
+/* LETTER HUNT */
+
+.letter-hunt-choices {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.letter-hunt-choice {
+    width: 80px;
+    height: 80px;
+    border: 5px solid #ffffff;
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        #4c9be8,
+        #62d5e8
+    );
+    color: white;
+    font-size: 38px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow:
+        0 7px 0 #2671a8,
+        0 10px 18px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.letter-hunt-choice:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 12px 0 #2671a8,
+        0 15px 22px rgba(0, 0, 0, 0.3);
+}
+
+.letter-hunt-choice:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 3px 0 #2671a8,
+        0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.letter-hunt-choice.found {
+    background: linear-gradient(
+        135deg,
+        #55c878,
+        #8be28f
+    );
+    box-shadow:
+        0 5px 0 #328c4b,
+        0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+}
