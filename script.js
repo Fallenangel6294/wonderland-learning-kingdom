@@ -531,17 +531,21 @@ function showSkillSelection() {
                     🐰 What would you like to practice?
                 </p>
 
-                <div class="skill-choices">
+               <div class="skill-choices">
 
-                    <button class="skill-button" data-skill="find-letter">
-                        🔎 Find the Letter
-                    </button>
+    <button class="skill-button" data-skill="find-letter">
+        🔎 Find the Letter
+    </button>
 
-                    <button class="skill-button" data-skill="uppercase-lowercase">
-                        🔡 Uppercase & Lowercase
-                    </button>
+    <button class="skill-button" data-skill="uppercase-lowercase">
+        🔡 Uppercase & Lowercase
+    </button>
 
-                </div>
+    <button class="skill-button" data-skill="letter-picture">
+        🖼️ Letter → Picture
+    </button>
+
+</div>
 
             </div>
         </div>
