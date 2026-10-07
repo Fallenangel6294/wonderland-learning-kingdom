@@ -26,6 +26,17 @@ const letterQuestButton =
 const backToThroneRoom =
     document.getElementById("backToThroneRoom");
 
+const storyTimeScreen =
+    document.getElementById("storyTimeScreen");
+
+const storyTimeButton =
+    document.getElementById("storyTimeButton");
+
+const backToThroneRoomFromStoryTime =
+    document.getElementById("backToThroneRoomFromStoryTime");
+
+const bunnyMissingMoonButton =
+    document.getElementById("bunnyMissingMoonButton");
 
 // Enter Storybook Castle
 
@@ -34,6 +45,16 @@ storybookCastle.addEventListener("click", function () {
     kingdomScreen.style.display = "none";
     castleScreen.style.display = "block";
 
+});
+
+storyTimeButton.addEventListener("click", function () {
+    castleScreen.style.display = "none";
+    storyTimeScreen.style.display = "block";
+});
+
+backToThroneRoomFromStoryTime.addEventListener("click", function () {
+    storyTimeScreen.style.display = "none";
+    castleScreen.style.display = "block";
 });
 
 
