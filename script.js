@@ -873,6 +873,8 @@ let usedQuestionIndexes = [];
 
 let currentSkill = "find-letter";
 
+let letterHuntFound = 0;
+
 const questionsPerQuest = 5;
 
 
