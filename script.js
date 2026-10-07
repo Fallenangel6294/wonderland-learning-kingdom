@@ -922,6 +922,10 @@ function showSkillSelection() {
     🧩 Letter Matching
 </button>
 
+<button class="skill-button" data-skill="letter-hunt">
+    🔍 Letter Hunt
+</button>
+
 </div>
 
             </div>
