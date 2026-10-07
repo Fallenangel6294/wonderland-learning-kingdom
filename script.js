@@ -953,8 +953,6 @@ function showSkillSelection() {
 
     });
 }
-function showNextQuestion() {
-
     function showLetterHuntQuestion() {
 
     letterHuntFound = 0;
@@ -1069,6 +1067,8 @@ function showNextQuestion() {
     }
 }
 
+function showNextQuestion() {
+    
     if (currentQuestionNumber >= questionsPerQuest) {
 
         showQuestComplete();
