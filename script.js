@@ -955,6 +955,120 @@ function showSkillSelection() {
 }
 function showNextQuestion() {
 
+    function showLetterHuntQuestion() {
+
+    letterHuntFound = 0;
+
+    let choicesHTML = "";
+
+    currentQuestion.choices.forEach(function (choice, index) {
+
+        choicesHTML += `
+            <button
+                class="letter-hunt-choice"
+                data-index="${index}"
+                data-letter="${choice}"
+            >
+                ${choice}
+            </button>
+        `;
+
+    });
+
+    letterQuestWelcome.innerHTML = `
+        <div class="quest-scroll">
+            <div class="scroll-content">
+
+                <h1>🔍 Letter Hunt</h1>
+
+                <p class="question-counter">
+                    Question ${currentQuestionNumber} of ${questionsPerQuest}
+                </p>
+
+                <p class="star-counter">
+                    ⭐ ${starsEarned}
+                </p>
+
+                <p>
+                    ${currentQuestion.question}
+                </p>
+
+                <div class="letter-hunt-choices">
+                    ${choicesHTML}
+                </div>
+
+                <p
+                    class="answer-message"
+                    id="answerMessage"
+                ></p>
+
+            </div>
+        </div>
+    `;
+
+    const huntChoices =
+        document.querySelectorAll(".letter-hunt-choice");
+
+    const answerMessage =
+        document.getElementById("answerMessage");
+
+    huntChoices.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            if (button.disabled) {
+                return;
+            }
+
+            const selectedLetter =
+                button.dataset.letter;
+
+            if (
+                currentQuestion.correct.includes(
+                    selectedLetter
+                )
+            ) {
+
+                button.disabled = true;
+                button.classList.add("found");
+
+                letterHuntFound++;
+
+                answerMessage.textContent =
+                    "✨ Great find! ⭐";
+
+                answerMessage.className =
+                    "answer-message correct";
+
+                if (
+                    letterHuntFound ===
+                    currentQuestion.correct.length
+                ) {
+
+                    starsEarned++;
+
+                    answerMessage.textContent =
+                        "🎉 You found them all! ⭐";
+
+                    setTimeout(function () {
+                        showNextQuestion();
+                    }, 1000);
+                }
+
+            } else {
+
+                answerMessage.textContent =
+                    "🐰 Keep looking!";
+
+                answerMessage.className =
+                    "answer-message try-again";
+            }
+
+        });
+
+    }
+}
+
     if (currentQuestionNumber >= questionsPerQuest) {
 
         showQuestComplete();
