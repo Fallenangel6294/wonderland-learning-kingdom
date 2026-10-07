@@ -481,6 +481,129 @@ const letterQuestQuestions = [
     correct: "B"
 },
 
+    // BEGINNING SOUNDS
+
+{
+    skill: "beginning-sounds",
+    question: "What letter does BALL begin with?",
+    choices: ["B", "M", "S", "D"],
+    correct: "B"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does MOON begin with?",
+    choices: ["M", "N", "B", "S"],
+    correct: "M"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does SUN begin with?",
+    choices: ["S", "F", "T", "C"],
+    correct: "S"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does FISH begin with?",
+    choices: ["F", "S", "P", "B"],
+    correct: "F"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does RABBIT begin with?",
+    choices: ["R", "B", "L", "D"],
+    correct: "R"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does CAT begin with?",
+    choices: ["C", "K", "T", "B"],
+    correct: "C"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does TURTLE begin with?",
+    choices: ["T", "C", "D", "B"],
+    correct: "T"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does APPLE begin with?",
+    choices: ["A", "P", "E", "O"],
+    correct: "A"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does LION begin with?",
+    choices: ["L", "M", "R", "I"],
+    correct: "L"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does ELEPHANT begin with?",
+    choices: ["E", "L", "F", "A"],
+    correct: "E"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does FROG begin with?",
+    choices: ["F", "G", "R", "B"],
+    correct: "F"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does BEE begin with?",
+    choices: ["B", "D", "P", "E"],
+    correct: "B"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does SNAKE begin with?",
+    choices: ["S", "C", "N", "B"],
+    correct: "S"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does MONKEY begin with?",
+    choices: ["M", "N", "B", "K"],
+    correct: "M"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does DUCK begin with?",
+    choices: ["D", "B", "C", "T"],
+    correct: "D"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does MOON begin with?",
+    choices: ["M", "N", "S", "O"],
+    correct: "M"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does HORSE begin with?",
+    choices: ["H", "F", "R", "S"],
+    correct: "H"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does FOX begin with?",
+    choices: ["F", "X", "S", "B"],
+    correct: "F"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does UNICORN begin with?",
+    choices: ["U", "C", "N", "Y"],
+    correct: "U"
+},
+{
+    skill: "beginning-sounds",
+    question: "What letter does BEAR begin with?",
+    choices: ["B", "D", "R", "M"],
+    correct: "B"
+},
+
 ];
 
 
