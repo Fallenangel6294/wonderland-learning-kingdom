@@ -668,6 +668,10 @@ function showSkillSelection() {
         🖼️ Letter → Picture
     </button>
 
+    <button class="skill-button" data-skill="beginning-sounds">
+    🔊 Beginning Sounds
+</button>
+
 </div>
 
             </div>
