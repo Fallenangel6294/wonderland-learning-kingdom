@@ -604,6 +604,129 @@ const letterQuestQuestions = [
     correct: "B"
 },
 
+    // LETTER MATCHING
+
+{
+    skill: "letter-matching",
+    question: "Which letter matches A?",
+    choices: ["M", "A", "S", "T"],
+    correct: "A"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches B?",
+    choices: ["D", "B", "P", "R"],
+    correct: "B"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches C?",
+    choices: ["O", "G", "C", "Q"],
+    correct: "C"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches D?",
+    choices: ["B", "P", "D", "O"],
+    correct: "D"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches E?",
+    choices: ["F", "E", "I", "L"],
+    correct: "E"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches F?",
+    choices: ["T", "P", "F", "E"],
+    correct: "F"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches G?",
+    choices: ["C", "G", "O", "Q"],
+    correct: "G"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches H?",
+    choices: ["N", "H", "M", "K"],
+    correct: "H"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches I?",
+    choices: ["L", "I", "T", "J"],
+    correct: "I"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches J?",
+    choices: ["I", "J", "G", "L"],
+    correct: "J"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches K?",
+    choices: ["H", "K", "R", "X"],
+    correct: "K"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches L?",
+    choices: ["I", "T", "L", "F"],
+    correct: "L"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches M?",
+    choices: ["N", "W", "M", "H"],
+    correct: "M"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches N?",
+    choices: ["M", "H", "N", "W"],
+    correct: "N"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches O?",
+    choices: ["Q", "C", "O", "D"],
+    correct: "O"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches P?",
+    choices: ["B", "P", "R", "D"],
+    correct: "P"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches R?",
+    choices: ["P", "B", "R", "K"],
+    correct: "R"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches S?",
+    choices: ["C", "S", "Z", "G"],
+    correct: "S"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches T?",
+    choices: ["I", "F", "T", "L"],
+    correct: "T"
+},
+{
+    skill: "letter-matching",
+    question: "Which letter matches Z?",
+    choices: ["S", "Z", "N", "X"],
+    correct: "Z"
+},
+
 ];
 
 
