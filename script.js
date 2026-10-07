@@ -727,6 +727,129 @@ const letterQuestQuestions = [
     correct: "Z"
 },
 
+    // LETTER HUNT
+
+{
+    skill: "letter-hunt",
+    question: "Find all the A's!",
+    choices: ["A", "M", "A", "S", "T", "A"],
+    correct: ["A", "A", "A"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the B's!",
+    choices: ["D", "B", "P", "B", "R", "B"],
+    correct: ["B", "B", "B"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the C's!",
+    choices: ["C", "O", "G", "C", "Q", "C"],
+    correct: ["C", "C", "C"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the D's!",
+    choices: ["B", "D", "P", "D", "O", "D"],
+    correct: ["D", "D", "D"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the E's!",
+    choices: ["F", "E", "I", "E", "L", "E"],
+    correct: ["E", "E", "E"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the F's!",
+    choices: ["F", "T", "P", "F", "E", "F"],
+    correct: ["F", "F", "F"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the G's!",
+    choices: ["C", "G", "O", "G", "Q", "G"],
+    correct: ["G", "G", "G"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the H's!",
+    choices: ["N", "H", "M", "H", "K", "H"],
+    correct: ["H", "H", "H"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the I's!",
+    choices: ["L", "I", "T", "I", "J", "I"],
+    correct: ["I", "I", "I"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the J's!",
+    choices: ["I", "J", "G", "J", "L", "J"],
+    correct: ["J", "J", "J"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the K's!",
+    choices: ["H", "K", "R", "K", "X", "K"],
+    correct: ["K", "K", "K"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the L's!",
+    choices: ["I", "L", "T", "L", "F", "L"],
+    correct: ["L", "L", "L"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the M's!",
+    choices: ["N", "M", "W", "M", "H", "M"],
+    correct: ["M", "M", "M"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the N's!",
+    choices: ["M", "N", "H", "N", "W", "N"],
+    correct: ["N", "N", "N"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the O's!",
+    choices: ["Q", "O", "C", "O", "D", "O"],
+    correct: ["O", "O", "O"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the P's!",
+    choices: ["B", "P", "R", "P", "D", "P"],
+    correct: ["P", "P", "P"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the R's!",
+    choices: ["P", "R", "B", "R", "K", "R"],
+    correct: ["R", "R", "R"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the S's!",
+    choices: ["C", "S", "Z", "S", "G", "S"],
+    correct: ["S", "S", "S"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the T's!",
+    choices: ["I", "T", "F", "T", "L", "T"],
+    correct: ["T", "T", "T"]
+},
+{
+    skill: "letter-hunt",
+    question: "Find all the Z's!",
+    choices: ["S", "Z", "N", "Z", "X", "Z"],
+    correct: ["Z", "Z", "Z"]
+},
+
 ];
 
 
