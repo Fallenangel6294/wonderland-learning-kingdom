@@ -995,25 +995,15 @@ letterQuestQuestions.forEach(function (question, index) {
     usedQuestionIndexes.push(randomIndex);
 
 
-    currentQuestion =
-        letterQuestQuestions[randomIndex];
+ currentQuestion =
+    letterQuestQuestions[randomIndex];
 
+if (currentSkill === "letter-hunt") {
+    showLetterHuntQuestion();
+    return;
+}
 
-    let choicesHTML = "";
-
-
-    currentQuestion.choices.forEach(function (choice) {
-
-        choicesHTML += `
-            <button
-                class="letter-choice"
-                data-answer="${choice}"
-            >
-                ${choice}
-            </button>
-        `;
-
-    });
+let choicesHTML = "";
 
 
     letterQuestWelcome.innerHTML = `
