@@ -959,19 +959,18 @@ function showSkillSelection() {
 
     let choicesHTML = "";
 
-    currentQuestion.choices.forEach(function (choice, index) {
+   currentQuestion.choices.forEach(function (choice) {
 
-        choicesHTML += `
-            <button
-                class="letter-hunt-choice"
-                data-index="${index}"
-                data-letter="${choice}"
-            >
-                ${choice}
-            </button>
-        `;
+    choicesHTML += `
+        <button
+            class="letter-choice"
+            data-answer="${choice}"
+        >
+            ${choice}
+        </button>
+    `;
 
-    });
+});
 
     letterQuestWelcome.innerHTML = `
         <div class="quest-scroll">
