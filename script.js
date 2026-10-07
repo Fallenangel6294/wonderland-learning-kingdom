@@ -795,6 +795,10 @@ function showSkillSelection() {
     🔊 Beginning Sounds
 </button>
 
+<button class="skill-button" data-skill="letter-matching">
+    🧩 Letter Matching
+</button>
+
 </div>
 
             </div>
