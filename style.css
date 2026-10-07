@@ -621,3 +621,52 @@ img {
         0 8px 15px rgba(0, 0, 0, 0.2);
     transform: scale(0.95);
 }
+/* STORY TIME LIBRARY */
+
+.story-time-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #241238;
+}
+
+.story-time-library {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Invisible clickable areas over the books */
+
+.story-book-button {
+    position: absolute;
+    border: none;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+/* Bunny and the Missing Moon */
+.bunny-story-button {
+    left: 19%;
+    top: 43%;
+    width: 20%;
+    height: 32%;
+}
+
+/* Bear's Big Adventure */
+.bear-story-button {
+    left: 40%;
+    top: 43%;
+    width: 20%;
+    height: 32%;
+}
+
+/* The Little Butterfly */
+.butterfly-story-button {
+    left: 61%;
+    top: 43%;
+    width: 20%;
+    height: 32%;
+}
