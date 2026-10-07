@@ -1117,6 +1117,18 @@ if (currentSkill === "letter-hunt") {
 
 let choicesHTML = "";
 
+    currentQuestion.choices.forEach(function (choice) {
+
+    choicesHTML += `
+        <button
+            class="letter-choice"
+            data-answer="${choice}"
+        >
+            ${choice}
+        </button>
+    `;
+
+});
 
     letterQuestWelcome.innerHTML = `
         <div class="quest-scroll">
