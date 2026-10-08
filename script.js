@@ -62,6 +62,12 @@ const owlHotspot =
 const owlDiscoveryMessage =
     document.getElementById("owlDiscoveryMessage");
 
+const owlContinueButton =
+    document.getElementById("owlContinueButton");
+
+const bunnyStoryPage3 =
+    document.getElementById("bunnyStoryPage3");
+
 // Enter Storybook Castle
 
 storybookCastle.addEventListener("click", function () {
@@ -102,6 +108,11 @@ moonContinueButton.addEventListener("click", function () {
 
 owlHotspot.addEventListener("click", function () {
     owlDiscoveryMessage.style.display = "block";
+});
+
+owlContinueButton.addEventListener("click", function () {
+    bunnyStoryPage2.style.display = "none";
+    bunnyStoryPage3.style.display = "block";
 });
 
 // Return to Wonderland Map
