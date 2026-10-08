@@ -811,5 +811,5 @@ img {
 /* PAGE 3 */
 
 .story-page-3 {
-    display: none;
+    display: none !important;
 }
