@@ -44,6 +44,12 @@ const bunnyStoryScreen =
 const backToStoryLibrary =
     document.getElementById("backToStoryLibrary");
 
+const moonHotspot =
+    document.getElementById("moonHotspot");
+
+const moonDiscoveryMessage =
+    document.getElementById("moonDiscoveryMessage");
+
 // Enter Storybook Castle
 
 storybookCastle.addEventListener("click", function () {
@@ -71,6 +77,10 @@ bunnyMissingMoonButton.addEventListener("click", function () {
 backToStoryLibrary.addEventListener("click", function () {
     bunnyStoryScreen.style.display = "none";
     storyTimeScreen.style.display = "block";
+});
+
+moonHotspot.addEventListener("click", function () {
+    moonDiscoveryMessage.style.display = "block";
 });
 
 // Return to Wonderland Map
