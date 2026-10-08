@@ -690,3 +690,20 @@ img {
     width: 100%;
     height: auto;
 }
+/* STORY HOTSPOTS */
+
+.story-hotspot {
+    position: absolute;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/* Moon on Bunny's first story page */
+.moon-hotspot {
+    left: 80%;
+    top: 15%;
+    width: 8%;
+    height: 12%;
+}
