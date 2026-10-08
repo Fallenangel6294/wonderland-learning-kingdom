@@ -68,6 +68,9 @@ const owlContinueButton =
 const bunnyStoryPage3 =
     document.getElementById("bunnyStoryPage3");
 
+const mushroomOne =
+    document.getElementById("mushroomOne");
+
 // Enter Storybook Castle
 
 storybookCastle.addEventListener("click", function () {
@@ -113,6 +116,10 @@ owlHotspot.addEventListener("click", function () {
 owlContinueButton.addEventListener("click", function () {
     bunnyStoryPage2.style.display = "none";
     bunnyStoryPage3.style.display = "block";
+});
+
+mushroomOne.addEventListener("click", function () {
+    mushroomOne.style.display = "none";
 });
 
 // Return to Wonderland Map
