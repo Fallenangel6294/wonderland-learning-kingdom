@@ -758,3 +758,41 @@ img {
         0 8px 18px rgba(0, 0, 0, 0.25);
     z-index: 10;
 }
+/* STORY CONTINUE BUTTON */
+
+.story-continue-button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 14px 30px;
+    border: 4px solid #ffffff;
+    border-radius: 40px;
+    background: linear-gradient(
+        135deg,
+        #8d4dcc,
+        #c45bea
+    );
+    color: white;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow:
+        0 6px 0 #632b8f,
+        0 9px 16px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.story-continue-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 9px 0 #632b8f,
+        0 13px 20px rgba(0, 0, 0, 0.3);
+}
+
+.story-continue-button:active {
+    transform: translateY(3px);
+    box-shadow:
+        0 3px 0 #632b8f,
+        0 6px 12px rgba(0, 0, 0, 0.2);
+}
