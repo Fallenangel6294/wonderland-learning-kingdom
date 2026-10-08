@@ -796,3 +796,8 @@ img {
         0 3px 0 #632b8f,
         0 6px 12px rgba(0, 0, 0, 0.2);
 }
+/* HIDE STORY PAGES UNTIL THEY ARE NEEDED */
+
+.story-page-2 {
+    display: none;
+}
