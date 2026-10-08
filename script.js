@@ -38,6 +38,12 @@ const backToThroneRoomFromStoryTime =
 const bunnyMissingMoonButton =
     document.getElementById("bunnyMissingMoonButton");
 
+const bunnyStoryScreen =
+    document.getElementById("bunnyStoryScreen");
+
+const backToStoryLibrary =
+    document.getElementById("backToStoryLibrary");
+
 // Enter Storybook Castle
 
 storybookCastle.addEventListener("click", function () {
@@ -57,6 +63,15 @@ backToThroneRoomFromStoryTime.addEventListener("click", function () {
     castleScreen.style.display = "block";
 });
 
+bunnyMissingMoonButton.addEventListener("click", function () {
+    storyTimeScreen.style.display = "none";
+    bunnyStoryScreen.style.display = "block";
+});
+
+backToStoryLibrary.addEventListener("click", function () {
+    bunnyStoryScreen.style.display = "none";
+    storyTimeScreen.style.display = "block";
+});
 
 // Return to Wonderland Map
 
