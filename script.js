@@ -50,6 +50,12 @@ const moonHotspot =
 const moonDiscoveryMessage =
     document.getElementById("moonDiscoveryMessage");
 
+const moonContinueButton =
+    document.getElementById("moonContinueButton");
+
+const bunnyStoryPage2 =
+    document.getElementById("bunnyStoryPage2");
+
 // Enter Storybook Castle
 
 storybookCastle.addEventListener("click", function () {
@@ -81,6 +87,11 @@ backToStoryLibrary.addEventListener("click", function () {
 
 moonHotspot.addEventListener("click", function () {
     moonDiscoveryMessage.style.display = "block";
+});
+
+moonContinueButton.addEventListener("click", function () {
+    document.querySelector(".story-page").style.display = "none";
+    bunnyStoryPage2.style.display = "block";
 });
 
 // Return to Wonderland Map
