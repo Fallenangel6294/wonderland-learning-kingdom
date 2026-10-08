@@ -813,3 +813,25 @@ img {
 .story-page-3 {
     display: none !important;
 }
+/* MUSHROOM HOTSPOTS */
+
+.mushroom-one {
+    left: 3%;
+    top: 71%;
+    width: 9%;
+    height: 15%;
+}
+
+.mushroom-two {
+    left: 86%;
+    top: 39%;
+    width: 10%;
+    height: 14%;
+}
+
+.mushroom-three {
+    left: 86%;
+    top: 82%;
+    width: 10%;
+    height: 17%;
+}
