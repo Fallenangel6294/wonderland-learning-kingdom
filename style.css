@@ -801,3 +801,11 @@ img {
 .story-page-2 {
     display: none;
 }
+/* Owl on Bunny's second story page */
+
+.owl-hotspot {
+    left: 77%;
+    top: 8%;
+    width: 11%;
+    height: 19%;
+}
