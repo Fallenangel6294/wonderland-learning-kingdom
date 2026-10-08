@@ -808,3 +808,8 @@ img {
     width: 11%;
     height: 19%;
 }
+/* PAGE 3 */
+
+.story-page-3 {
+    display: none;
+}
