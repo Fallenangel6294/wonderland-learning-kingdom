@@ -670,3 +670,23 @@ img {
     width: 20%;
     height: 32%;
 }
+/* BUNNY AND THE MISSING MOON */
+
+.bunny-story-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #10182f;
+}
+
+.story-page {
+    position: relative;
+    width: 100%;
+}
+
+.story-page-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
