@@ -118,8 +118,35 @@ owlContinueButton.addEventListener("click", function () {
     bunnyStoryPage3.style.display = "block";
 });
 
+const mushroomTwo =
+    document.getElementById("mushroomTwo");
+
+const mushroomThree =
+    document.getElementById("mushroomThree");
+
+const mushroomCounter =
+    document.getElementById("mushroomCounter");
+
+const mushroomDiscoveryMessage =
+    document.getElementById("mushroomDiscoveryMessage");
+
+const foundMushrooms = new Set();
+
+function findMushroom(mushroom, number) {
+    if (foundMushrooms.has(number)) return;
+
+    foundMushrooms.add(number);
+
+    mushroomCounter.textContent =
+        `🍄 ${foundMushrooms.size} of 3 found`;
+
+    if (foundMushrooms.size === 3) {
+        mushroomDiscoveryMessage.style.display = "block";
+    }
+}
+
 mushroomOne.addEventListener("click", function () {
-    mushroomOne.style.display = "none";
+    findMushroom(mushroomOne, 1);
 });
 
 // Return to Wonderland Map
