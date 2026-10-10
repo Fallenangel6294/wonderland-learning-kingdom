@@ -146,9 +146,10 @@ function findMushroom(mushroom, number) {
 }
 
 mushroomOne.addEventListener("click", function () {
+    alert("Mushroom clicked!");
+
     findMushroom(mushroomOne, 1);
 });
-
 // Return to Wonderland Map
 
 backToKingdom.addEventListener("click", function () {
