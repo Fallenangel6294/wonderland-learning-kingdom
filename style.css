@@ -852,12 +852,12 @@ img {
 }
 
 
-/* Page 4: Keep story words away from the moon reflection */
+/* Page 4: Position the story text */
 #bunnyStoryPage4 .story-text-panel {
-    top: 5%;
+    top: 15%;
     bottom: auto;
-    left: 5%;
-    width: 90%;
+    left: 10%;
+    width: 80%;
 }
 
 /* Keep the moon reflection clickable */
@@ -867,3 +867,4 @@ img {
     width: 16%;
     height: 28%;
 }
+
