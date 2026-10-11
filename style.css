@@ -868,3 +868,17 @@ img {
     height: 28%;
 }
 
+
+/* FORCE the Page 4 story text into position */
+#bunnyStoryPage4 .story-text-panel {
+    position: absolute !important;
+    top: 15% !important;
+    left: 25% !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 65% !important;
+    transform: none !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    z-index: 5;
+}
