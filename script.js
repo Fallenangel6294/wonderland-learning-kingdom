@@ -71,7 +71,6 @@ const bunnyStoryPage3 =
 const mushroomOne =
     document.getElementById("mushroomOne");
 
-console.log("Mushroom counter:", mushroomCounter);
 
 // Enter Storybook Castle
 
