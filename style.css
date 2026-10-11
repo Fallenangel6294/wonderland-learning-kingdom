@@ -851,3 +851,19 @@ img {
     display: none;
 }
 
+
+/* Page 4: Keep story words away from the moon reflection */
+#bunnyStoryPage4 .story-text-panel {
+    top: 5%;
+    bottom: auto;
+    left: 5%;
+    width: 90%;
+}
+
+/* Keep the moon reflection clickable */
+#bunnyStoryPage4 .pond-moon-hotspot {
+    left: 52%;
+    top: 61%;
+    width: 16%;
+    height: 28%;
+}
