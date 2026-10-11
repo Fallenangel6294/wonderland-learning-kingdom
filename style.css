@@ -860,13 +860,18 @@ img {
     width: 70%;
 }
 
-/* Keep the moon reflection clickable */
+
 #bunnyStoryPage4 .pond-moon-hotspot {
-    left: 52%;
-    top: 61%;
-    width: 16%;
-    height: 28%;
+    position: absolute !important;
+    left: 52% !important;
+    top: 61% !important;
+    width: 16% !important;
+    height: 28% !important;
+    z-index: 10 !important;
+    cursor: pointer;
+    pointer-events: auto !important;
 }
+
 
 
 /* FORCE the Page 4 story text into position */
