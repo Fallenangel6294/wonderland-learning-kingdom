@@ -158,6 +158,37 @@ mushroomThree.addEventListener("click", function () {
     findMushroom(mushroomThree, 3);
 });
 
+
+const bunnyStoryPage4 =
+    document.getElementById("bunnyStoryPage4");
+
+const pondMoonHotspot =
+    document.getElementById("pondMoonHotspot");
+
+const pondMoonDiscoveryMessage =
+    document.getElementById("pondMoonDiscoveryMessage");
+
+const pondMoonContinueButton =
+    document.getElementById("pondMoonContinueButton");
+
+// Continue from the mushroom hunt to Page 4
+mushroomContinueButton.addEventListener("click", function () {
+    bunnyStoryPage3.style.display = "none";
+    bunnyStoryPage4.style.display = "block";
+});
+
+// Find the moon's reflection
+pondMoonHotspot.addEventListener("click", function () {
+    pondMoonDiscoveryMessage.style.display = "block";
+});
+
+// Continue from Page 4
+pondMoonContinueButton.addEventListener("click", function () {
+    bunnyStoryPage4.style.display = "none";
+    // We'll connect Page 5 here next!
+});
+
+
 // Return to Wonderland Map
 
 backToKingdom.addEventListener("click", function () {
