@@ -152,6 +152,15 @@ mushroomOne.addEventListener("click", function () {
 
     findMushroom(mushroomOne, 1);
 });
+
+mushroomTwo.addEventListener("click", function () {
+    findMushroom(mushroomTwo, 2);
+});
+
+mushroomThree.addEventListener("click", function () {
+    findMushroom(mushroomThree, 3);
+});
+
 // Return to Wonderland Map
 
 backToKingdom.addEventListener("click", function () {
