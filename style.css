@@ -836,3 +836,18 @@ img {
     height: 17%;
 }
 
+.story-page-4 {
+    display: none;
+}
+
+.pond-moon-hotspot {
+    left: 52%;
+    top: 61%;
+    width: 16%;
+    height: 28%;
+}
+
+#pondMoonDiscoveryMessage {
+    display: none;
+}
+
