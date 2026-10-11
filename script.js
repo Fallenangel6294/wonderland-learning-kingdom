@@ -147,8 +147,6 @@ function findMushroom(mushroom, number) {
 }
 
 mushroomOne.addEventListener("click", function () {
-    alert("Mushroom clicked!");
-
     findMushroom(mushroomOne, 1);
 });
 
