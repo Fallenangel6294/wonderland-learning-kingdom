@@ -157,7 +157,8 @@ mushroomTwo.addEventListener("click", function () {
 mushroomThree.addEventListener("click", function () {
     findMushroom(mushroomThree, 3);
 });
-
+const mushroomContinueButton =
+    document.getElementById("mushroomContinueButton");
 
 const bunnyStoryPage4 =
     document.getElementById("bunnyStoryPage4");
