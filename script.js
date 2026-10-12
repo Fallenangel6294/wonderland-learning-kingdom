@@ -2173,3 +2173,171 @@ const wordToPictureQuestions = [
     { picture: "🐦", word: "BIRD", choices: ["BIRD", "DUCK", "FISH"] },
     { picture: "🍓", word: "BERRY", choices: ["APPLE", "BERRY", "BANANA"] }
 ];
+
+/* ========================================
+   WORD TO PICTURE: GAME LOGIC
+======================================== */
+
+const wordToPictureButton =
+    document.getElementById("wordToPictureButton");
+
+const wordPictureGame =
+    document.getElementById("wordPictureGame");
+
+const wordPictureMenu =
+    document.getElementById("wordMatchMenu");
+
+const wordPictureImage =
+    document.getElementById("wordPictureImage");
+
+const wordPictureChoices =
+    document.getElementById("wordPictureChoices");
+
+const wordPictureProgress =
+    document.getElementById("wordPictureProgress");
+
+const wordPictureFeedback =
+    document.getElementById("wordPictureFeedback");
+
+const backToWordMatchMenu =
+    document.getElementById("backToWordMatchMenu");
+
+let wordPictureRound = [];
+let wordPictureQuestionIndex = 0;
+let wordPictureScore = 0;
+let wordPictureAnswered = false;
+
+// Shuffle the questions and select five different ones.
+function startWordPictureRound() {
+    wordPictureRound = [...wordToPictureQuestions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5);
+
+    wordPictureQuestionIndex = 0;
+    wordPictureScore = 0;
+
+    showWordPictureQuestion();
+}
+
+// Display the current question.
+function showWordPictureQuestion() {
+    const question =
+        wordPictureRound[wordPictureQuestionIndex];
+
+    wordPictureAnswered = false;
+
+    wordPictureProgress.textContent =
+        `Question ${wordPictureQuestionIndex + 1} of 5`;
+
+    wordPictureImage.textContent = question.picture;
+    wordPictureFeedback.textContent = "";
+    wordPictureChoices.innerHTML = "";
+
+    const shuffledChoices = [...question.choices]
+        .sort(() => Math.random() - 0.5);
+
+    shuffledChoices.forEach(function (choice) {
+        const button = document.createElement("button");
+
+        button.className = "word-picture-choice";
+        button.textContent = choice;
+
+        button.addEventListener("click", function () {
+            checkWordPictureAnswer(button, choice, question);
+        });
+
+        wordPictureChoices.appendChild(button);
+    });
+}
+
+// Check the child's answer.
+function checkWordPictureAnswer(button, choice, question) {
+    if (wordPictureAnswered) return;
+
+    wordPictureAnswered = true;
+
+    const buttons =
+        wordPictureChoices.querySelectorAll("button");
+
+    buttons.forEach(function (answerButton) {
+        answerButton.disabled = true;
+    });
+
+    if (choice === question.word) {
+        wordPictureScore++;
+
+        wordPictureFeedback.textContent =
+            "🌟 Fantastic! You found the right word!";
+
+        awardLearningStars(1);
+    } else {
+        wordPictureFeedback.textContent =
+            `Good try! The word is ${question.word}. 💜`;
+    }
+
+    const nextButton = document.createElement("button");
+
+    nextButton.className = "word-picture-choice";
+    nextButton.textContent =
+        wordPictureQuestionIndex === 4
+            ? "See My Results! ✨"
+            : "Next Question ➜";
+
+    nextButton.style.gridColumn = "1 / -1";
+
+    nextButton.addEventListener("click", function () {
+        wordPictureQuestionIndex++;
+
+        if (wordPictureQuestionIndex < 5) {
+            showWordPictureQuestion();
+        } else {
+            finishWordPictureRound();
+        }
+    });
+
+    wordPictureChoices.appendChild(nextButton);
+}
+
+// Celebrate the end of the five-question round.
+function finishWordPictureRound() {
+    wordPictureProgress.textContent = "Round Complete!";
+
+    wordPictureImage.textContent =
+        wordPictureScore === 5 ? "🏆" : "🌟";
+
+    wordPictureChoices.innerHTML = "";
+
+    wordPictureFeedback.textContent =
+        `You got ${wordPictureScore} out of 5 correct! Great learning!`;
+
+    if (wordPictureScore === 5) {
+        startConfettiRain();
+    }
+
+    const menuButton = document.createElement("button");
+
+    menuButton.className = "word-picture-choice";
+    menuButton.textContent = "🏰 Choose Another Game";
+
+    menuButton.addEventListener("click", function () {
+        wordPictureGame.style.display = "none";
+        wordPictureMenu.style.display = "flex";
+    });
+
+    wordPictureChoices.appendChild(menuButton);
+}
+
+// Open Word to Picture from the game menu.
+wordToPictureButton.addEventListener("click", function () {
+    wordPictureMenu.style.display = "none";
+    wordPictureGame.style.display = "flex";
+
+    startWordPictureRound();
+});
+
+// Return to the game menu at any time.
+backToWordMatchMenu.addEventListener("click", function () {
+    wordPictureGame.style.display = "none";
+    wordPictureMenu.style.display = "flex";
+});
+
