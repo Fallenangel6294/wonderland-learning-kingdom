@@ -240,14 +240,23 @@ bunnyStoryPage6.querySelector(".story-text-panel").addEventListener("click", fun
 });
 
 // Return to the Kingdom
+
 finishStoryButton.addEventListener("click", function () {
-    awardLearningStars(3, "bunny-missing-moon");
+    const completedActivities = JSON.parse(
+        localStorage.getItem("wonderlandCompletedActivities") || "[]"
+    );
+
+    const alreadyCompleted =
+        completedActivities.includes("bunny-missing-moon");
+
+    if (!alreadyCompleted) {
+        awardLearningStars(3, "bunny-missing-moon");
+        startConfettiRain();
+    }
 
     bunnyStoryScreen.style.display = "none";
     kingdomScreen.style.display = "block";
 });
-
-
 
 // Return to Wonderland Map
 
@@ -1556,3 +1565,34 @@ function awardLearningStars(amount = 1, activityName = "") {
 }
 
 updateStarCounter();
+
+/* WONDERLAND CONFETTI RAIN */
+function startConfettiRain() {
+    const colors = [
+        "#ff4fa3",
+        "#ffd700",
+        "#54d6ff",
+        "#a66bff",
+        "#55d879",
+        "#ff914d"
+    ];
+
+    for (let i = 0; i < 120; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti-piece";
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.animationDelay = Math.random() * 1.5 + "s";
+        piece.style.animationDuration =
+            2.5 + Math.random() * 2 + "s";
+
+        document.body.appendChild(piece);
+
+        piece.addEventListener("animationend", function () {
+            piece.remove();
+        });
+    }
+}
