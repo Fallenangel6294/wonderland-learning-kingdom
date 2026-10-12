@@ -1136,3 +1136,39 @@ img {
 #pathChoicePopup .story-continue-button {
     pointer-events: auto;
 }
+
+/* THE GOLDEN FLOWER GAME */
+
+.golden-flower-hotspot {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 73%;
+    width: 42%;
+    height: 34%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 3px dashed transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.golden-flower-hotspot:focus-visible {
+    border-color: #f5bd32;
+    outline: 3px solid white;
+}
+
+#goldenFlowerPopup {
+    top: 84%;
+}
+
+#goldenFlowerPopup .bear-interaction-message {
+    background: #fff3c4;
+    border-color: #f5bd32;
+    color: #704c12;
+    max-width: 100%;
+}
+
+#goldenFlowerPopup .story-continue-button {
+    pointer-events: auto;
+}
