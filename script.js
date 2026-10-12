@@ -215,7 +215,34 @@ skyMoonHotspot.addEventListener("click", function () {
 // Continue from Page 5
 skyMoonContinueButton.addEventListener("click", function () {
     bunnyStoryPage5.style.display = "none";
-    // We'll connect Page 6 here next!
+});
+
+/* PAGE 6: THE FINALE */
+
+const bunnyStoryPage6 =
+    document.getElementById("bunnyStoryPage6");
+
+const finalStoryMessage =
+    document.getElementById("finalStoryMessage");
+
+const finishStoryButton =
+    document.getElementById("finishStoryButton");
+
+// Continue from Page 5 to Page 6
+skyMoonContinueButton.addEventListener("click", function () {
+    bunnyStoryPage5.style.display = "none";
+    bunnyStoryPage6.style.display = "block";
+});
+
+// Show the story's happy ending
+bunnyStoryPage6.querySelector(".story-text-panel").addEventListener("click", function () {
+    finalStoryMessage.style.display = "block";
+});
+
+// Return to the Kingdom
+finishStoryButton.addEventListener("click", function () {
+    bunnyStoryScreen.style.display = "none";
+    kingdomScreen.style.display = "block";
 });
 
 
