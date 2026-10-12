@@ -241,9 +241,12 @@ bunnyStoryPage6.querySelector(".story-text-panel").addEventListener("click", fun
 
 // Return to the Kingdom
 finishStoryButton.addEventListener("click", function () {
+    awardLearningStars(3, "bunny-missing-moon");
+
     bunnyStoryScreen.style.display = "none";
     kingdomScreen.style.display = "block";
 });
+
 
 
 // Return to Wonderland Map
