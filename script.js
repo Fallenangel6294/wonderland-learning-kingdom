@@ -186,7 +186,36 @@ pondMoonHotspot.addEventListener("click", function () {
 // Continue from Page 4
 pondMoonContinueButton.addEventListener("click", function () {
     bunnyStoryPage4.style.display = "none";
-    // We'll connect Page 5 here next!
+});
+
+
+const bunnyStoryPage5 =
+    document.getElementById("bunnyStoryPage5");
+
+const skyMoonHotspot =
+    document.getElementById("skyMoonHotspot");
+
+const skyMoonDiscoveryMessage =
+    document.getElementById("skyMoonDiscoveryMessage");
+
+const skyMoonContinueButton =
+    document.getElementById("skyMoonContinueButton");
+
+// Continue from Page 4 to Page 5
+pondMoonContinueButton.addEventListener("click", function () {
+    bunnyStoryPage4.style.display = "none";
+    bunnyStoryPage5.style.display = "block";
+});
+
+// Find the real moon in the sky
+skyMoonHotspot.addEventListener("click", function () {
+    skyMoonDiscoveryMessage.style.display = "block";
+});
+
+// Continue from Page 5
+skyMoonContinueButton.addEventListener("click", function () {
+    bunnyStoryPage5.style.display = "none";
+    // We'll connect Page 6 here next!
 });
 
 
