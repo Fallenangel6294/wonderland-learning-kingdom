@@ -17,6 +17,8 @@ const wordMatchButton = document.getElementById("wordMatchButton");
 
 const wordMatchMenu = document.getElementById("wordMatchMenu");
 
+const startWordMatch = document.getElementById("startWordMatch");
+
 const storybookCastle =
     document.getElementById("storybookCastle");
 
@@ -283,12 +285,22 @@ wordMatchButton.addEventListener("click", function () {
 
 // Return to the Storybook Castle from Word Match
 
+
 const backFromWordMatch = document.getElementById("backFromWordMatch");
 
 backFromWordMatch.addEventListener("click", function () {
     wordMatchScreen.style.display = "none";
+    wordMatchMenu.style.display = "none";
+    startWordMatch.style.display = "block";
     castleScreen.style.display = "block";
 });
+
+
+startWordMatch.addEventListener("click", function () {
+    wordMatchMenu.style.display = "flex";
+    startWordMatch.style.display = "none";
+});
+
 
 // Enter Letter Quest
 
