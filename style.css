@@ -1003,3 +1003,42 @@ img {
     color: #287bd1;
     padding: 10px;
 }
+
+/* STORYBOOK POPUPS */
+
+.bear-picture-area {
+    position: relative;
+}
+
+.bear-popup-area {
+    position: absolute;
+    left: 50%;
+    top: 72%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 90%;
+    pointer-events: none;
+}
+
+.bear-interaction-message {
+    background: #fff8d9;
+    color: #62411f;
+    border: 3px solid #e8b84b;
+    border-radius: 20px;
+    padding: 12px 18px;
+    margin: 0;
+    text-align: center;
+    font-size: clamp(14px, 2.5vw, 21px);
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.bear-popup-area .story-continue-button {
+    pointer-events: auto;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
