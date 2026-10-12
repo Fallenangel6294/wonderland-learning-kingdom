@@ -1692,3 +1692,21 @@ finishBearStory.addEventListener("click", function () {
     bearStoryScreen.style.display = "none";
     storyTimeScreen.style.display = "block";
 });
+
+
+/* BEAR'S BIG ADVENTURE: FIND THE BLUE FLOWER */
+
+const blueFlowerHotspot =
+    document.getElementById("blueFlowerHotspot");
+
+const blueFlowerMessage =
+    document.getElementById("blueFlowerMessage");
+
+const bearNext2 =
+    document.getElementById("bearNext2");
+
+blueFlowerHotspot.addEventListener("click", function () {
+    blueFlowerMessage.style.display = "block";
+    blueFlowerHotspot.style.display = "none";
+    bearNext2.style.display = "inline-block";
+});
