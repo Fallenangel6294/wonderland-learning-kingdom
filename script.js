@@ -269,7 +269,21 @@ backToKingdom.addEventListener("click", function () {
     kingdomScreen.style.display = "block";
 
 });
+// Open Word Match from the Prince's Throne
 
+wordMatchButton.addEventListener("click", function () {
+    castleScreen.style.display = "none";
+    wordMatchScreen.style.display = "block";
+});
+
+// Return to the Storybook Castle from Word Match
+
+const backFromWordMatch = document.getElementById("backFromWordMatch");
+
+backFromWordMatch.addEventListener("click", function () {
+    wordMatchScreen.style.display = "none";
+    castleScreen.style.display = "block";
+});
 
 // Enter Letter Quest
 
