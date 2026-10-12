@@ -1398,3 +1398,35 @@ img {
         min-height: 120px;
     }
 }
+
+/* WORD MATCH LET'S PLAY BUTTON */
+
+.word-match-play-button {
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+    transform: translateX(-50%);
+    z-index: 4;
+
+    padding: 18px 42px;
+    border: 4px solid #ffe58a;
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #a66cf0, #6332a5);
+    color: white;
+
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 7px 0 #35175c;
+}
+
+.word-match-play-button:hover {
+    background: linear-gradient(135deg, #bd8aff, #8050c5);
+}
+
+.word-match-play-button:focus-visible {
+    outline: 4px solid white;
+    outline-offset: 5px;
+}
