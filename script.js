@@ -1453,6 +1453,24 @@ let choicesHTML = "";
 
 function showQuestComplete() {
 
+    
+    // Add Letter Quest rewards to the Kingdom counter
+    const letterQuestReward =
+        "letter-quest-" + currentSkill;
+
+    const completedActivities = JSON.parse(
+        localStorage.getItem("wonderlandCompletedActivities") || "[]"
+    );
+
+    if (
+        starsEarned > 0 &&
+        !completedActivities.includes(letterQuestReward)
+    ) {
+        awardLearningStars(starsEarned, letterQuestReward);
+        startConfettiRain();
+    }
+
+
     letterQuestWelcome.innerHTML = `
         <div class="quest-scroll">
 
