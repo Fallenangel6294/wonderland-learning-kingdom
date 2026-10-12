@@ -1430,3 +1430,141 @@ img {
     outline: 4px solid white;
     outline-offset: 5px;
 }
+
+/* ========================================
+   WORD TO PICTURE GAME
+======================================== */
+
+.word-picture-game {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+
+    min-height: 100vh;
+    padding: 90px 20px 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(circle at top, #7046a5, #241238 75%);
+    color: white;
+}
+
+.word-picture-card {
+    width: min(700px, 100%);
+    padding: 30px 24px;
+
+    border: 5px solid #ffe58a;
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+}
+
+.word-picture-card h1 {
+    margin: 0 0 14px;
+    color: #ffe58a;
+    font-size: clamp(28px, 4vw, 42px);
+}
+
+#wordPictureProgress {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.word-picture-instruction {
+    font-size: 23px;
+    line-height: 1.4;
+}
+
+.word-picture-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 180px;
+    height: 180px;
+    margin: 24px auto;
+
+    border: 4px solid #ffe58a;
+    border-radius: 24px;
+
+    background: #fff8df;
+    color: #35175c;
+    font-size: 100px;
+}
+
+.word-picture-choices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.word-picture-choice {
+    min-height: 76px;
+    padding: 16px;
+
+    border: 3px solid #ffe58a;
+    border-radius: 18px;
+
+    background: #fff8df;
+    color: #35175c;
+
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.word-picture-choice:hover {
+    background: #ffe8a8;
+}
+
+.word-picture-choice:disabled {
+    cursor: default;
+    opacity: 0.75;
+}
+
+#wordPictureFeedback {
+    min-height: 35px;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#backToWordMatchMenu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+@media (max-width: 480px) {
+    .word-picture-card {
+        padding: 24px 14px;
+    }
+
+    .word-picture-image {
+        width: 145px;
+        height: 145px;
+        font-size: 80px;
+    }
+
+    .word-picture-choices {
+        gap: 10px;
+    }
+
+    .word-picture-choice {
+        min-height: 68px;
+        padding: 12px 6px;
+        font-size: 21px;
+    }
+}
