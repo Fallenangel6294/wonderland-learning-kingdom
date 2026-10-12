@@ -1977,3 +1977,52 @@ finishButterflyStory.addEventListener("click", function () {
     butterflyStoryScreen.style.display = "none";
     storyTimeScreen.style.display = "block";
 });
+
+/* THE LITTLE BUTTERFLY: FIND THE RED FLOWER */
+
+const redFlowerHotspot =
+    document.getElementById("redFlowerHotspot");
+
+const redFlowerPopup =
+    document.getElementById("redFlowerPopup");
+
+const redFlowerMessage =
+    document.getElementById("redFlowerMessage");
+
+const butterflyNext2Popup =
+    document.getElementById("butterflyNext2Popup");
+
+const butterflyNext2Original =
+    document.getElementById("butterflyNext2");
+
+function resetRedFlowerGame() {
+    redFlowerHotspot.style.display = "block";
+    redFlowerPopup.style.display = "none";
+    butterflyNext2Popup.style.display = "none";
+    butterflyNext2Original.style.display = "none";
+
+    redFlowerMessage.textContent =
+        "🌺 You found the red flower!";
+}
+
+redFlowerHotspot.addEventListener("click", function () {
+    redFlowerHotspot.style.display = "none";
+    redFlowerPopup.style.display = "flex";
+
+    redFlowerMessage.textContent =
+        "🌺 You found the red flower! " +
+        "Great exploring, Marlowe and Storm!";
+
+    butterflyNext2Popup.style.display = "inline-block";
+});
+
+// Reset the activity whenever Page 2 opens.
+const originalShowButterflyPageForFlower = showButterflyPage;
+
+showButterflyPage = function (pageNumber) {
+    originalShowButterflyPageForFlower(pageNumber);
+
+    if (pageNumber === 2) {
+        resetRedFlowerGame();
+    }
+};
