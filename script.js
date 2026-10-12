@@ -1710,3 +1710,75 @@ blueFlowerHotspot.addEventListener("click", function () {
     blueFlowerHotspot.style.display = "none";
     bearNext2.style.display = "inline-block";
 });
+
+/* BUTTERFLY COUNT GAME */
+
+let butterfliesFound = [];
+
+const butterflyCountDisplay =
+    document.getElementById("butterflyCountDisplay");
+
+const butterflyWinMessage =
+    document.getElementById("butterflyWinMessage");
+
+const butterflyButtons = [
+    document.getElementById("butterfly1"),
+    document.getElementById("butterfly2"),
+    document.getElementById("butterfly3")
+];
+
+function resetButterflyGame() {
+    butterfliesFound = [];
+
+    butterflyCountDisplay.style.display = "block";
+    butterflyCountDisplay.textContent =
+        "🦋 Butterflies found: 0 of 3";
+
+    butterflyWinMessage.style.display = "none";
+
+    document.getElementById("bearNext3").style.display = "none";
+
+    butterflyButtons.forEach(function (button) {
+        button.style.display = "block";
+    });
+}
+
+butterflyButtons.forEach(function (button, index) {
+    button.addEventListener("click", function () {
+
+        // Do not count the same butterfly twice.
+        if (butterfliesFound.includes(index)) {
+            return;
+        }
+
+        butterfliesFound.push(index);
+
+        butterflyCountDisplay.textContent =
+            "🦋 Butterflies found: " +
+            butterfliesFound.length + " of 3";
+
+        // Hide the butterfly after it has been found.
+        button.style.display = "none";
+
+        // Celebrate when all three have been found.
+        if (butterfliesFound.length === 3) {
+            butterflyCountDisplay.style.display = "none";
+            butterflyWinMessage.style.display = "block";
+            document.getElementById("bearNext3").style.display =
+                "inline-block";
+
+            startConfettiRain();
+        }
+    });
+});
+
+// Start a fresh counting game whenever Page 3 opens.
+const originalShowBearPage = showBearPage;
+
+showBearPage = function (pageNumber) {
+    originalShowBearPage(pageNumber);
+
+    if (pageNumber === 3) {
+        resetButterflyGame();
+    }
+};
