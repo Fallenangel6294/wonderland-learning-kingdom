@@ -2026,3 +2026,80 @@ showButterflyPage = function (pageNumber) {
         resetRedFlowerGame();
     }
 };
+
+/* THE LITTLE BUTTERFLY: COUNT THE FLOWERS */
+
+let butterflyFlowersFound = [];
+
+const butterflyFlowerButtons = [
+    document.getElementById("countFlower1"),
+    document.getElementById("countFlower2"),
+    document.getElementById("countFlower3")
+];
+
+const butterflyFlowerCount =
+    document.getElementById("butterflyFlowerCount");
+
+const butterflyCountWinMessage =
+    document.getElementById("butterflyCountWinMessage");
+
+const butterflyNext3Popup =
+    document.getElementById("butterflyNext3Popup");
+
+const butterflyNext3Original =
+    document.getElementById("butterflyNext3");
+
+const butterflyCountPopup =
+    document.getElementById("butterflyCountPopup");
+
+function resetButterflyFlowerGame() {
+    butterflyFlowersFound = [];
+
+    butterflyFlowerButtons.forEach(function (button) {
+        button.style.display = "block";
+    });
+
+    butterflyFlowerCount.style.display = "block";
+    butterflyFlowerCount.textContent = "🌼 Flowers found: 0 of 3";
+
+    butterflyCountWinMessage.style.display = "none";
+    butterflyNext3Popup.style.display = "none";
+    butterflyNext3Original.style.display = "none";
+}
+
+butterflyFlowerButtons.forEach(function (button, index) {
+    button.addEventListener("click", function () {
+
+        // Each flower counts only once.
+        if (butterflyFlowersFound.includes(index)) {
+            return;
+        }
+
+        butterflyFlowersFound.push(index);
+
+        butterflyFlowerCount.textContent =
+            "🌼 Flowers found: " +
+            butterflyFlowersFound.length + " of 3";
+
+        button.style.display = "none";
+
+        if (butterflyFlowersFound.length === 3) {
+            butterflyFlowerCount.style.display = "none";
+            butterflyCountWinMessage.style.display = "block";
+            butterflyNext3Popup.style.display = "inline-block";
+
+            startConfettiRain();
+        }
+    });
+});
+
+// Reset the counting game whenever Page 3 opens.
+const originalShowButterflyPageForCounting = showButterflyPage;
+
+showButterflyPage = function (pageNumber) {
+    originalShowButterflyPageForCounting(pageNumber);
+
+    if (pageNumber === 3) {
+        resetButterflyFlowerGame();
+    }
+};
