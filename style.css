@@ -962,3 +962,46 @@ img {
         opacity: 0;
     }
 }
+
+/* BEAR'S BIG ADVENTURE: BLUE FLOWER */
+
+.bear-picture-area {
+    position: relative;
+    width: 100%;
+}
+
+.bear-picture-area .story-page-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.bear-flower-hotspot {
+    position: absolute;
+    /*
+       Temporary position. We will adjust this to match
+       the exact blue flower in your picture.
+    */
+    left: 50%;
+    top: 55%;
+    width: 15%;
+    height: 15%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 3px dashed transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.bear-flower-hotspot:focus-visible {
+    border-color: #287bd1;
+    outline: 3px solid white;
+}
+
+.bear-interaction-message {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #287bd1;
+    padding: 10px;
+}
