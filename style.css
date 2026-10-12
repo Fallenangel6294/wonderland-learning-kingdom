@@ -976,16 +976,13 @@ img {
     height: auto;
 }
 
+
 .bear-flower-hotspot {
     position: absolute;
-    /*
-       Temporary position. We will adjust this to match
-       the exact blue flower in your picture.
-    */
-    left: 50%;
-    top: 55%;
-    width: 15%;
-    height: 15%;
+    left: 81%;
+    top: 79%;
+    width: 19%;
+    height: 23%;
     transform: translate(-50%, -50%);
     background: transparent;
     border: 3px dashed transparent;
@@ -997,6 +994,7 @@ img {
     border-color: #287bd1;
     outline: 3px solid white;
 }
+
 
 .bear-interaction-message {
     text-align: center;
