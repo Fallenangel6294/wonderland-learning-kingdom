@@ -860,7 +860,6 @@ img {
     width: 70%;
 }
 
-
 #bunnyStoryPage4 .pond-moon-hotspot {
     position: absolute !important;
     left: 65% !important;
@@ -868,12 +867,11 @@ img {
     width: 16% !important;
     height: 28% !important;
     z-index: 20 !important;
-    background: rgba(255, 0, 0, 0.25) !important;
-    border: 3px solid red !important;
+    background: transparent !important;
+    border: none !important;
     cursor: pointer;
     pointer-events: auto !important;
 }
-
 
 /* FORCE the Page 4 story text into position */
 #bunnyStoryPage4 .story-text-panel {
