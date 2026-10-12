@@ -898,3 +898,23 @@ img {
     width: 18%;
     height: 22%;
 }
+
+/* PAGE 6: THE FINALE */
+.story-page-6 {
+    display: none;
+}
+
+#bunnyStoryPage6 .story-text-panel {
+    position: absolute !important;
+    top: 12% !important;
+    left: 15% !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 70% !important;
+    transform: none !important;
+    z-index: 5;
+}
+
+#finalStoryMessage {
+    display: none;
+}
