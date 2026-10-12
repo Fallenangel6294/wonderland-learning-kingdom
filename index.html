@@ -478,14 +478,55 @@
 
 
         <!-- PAGE 3 -->
-        <section class="bear-story-page" id="bearPage3" style="display:none">
-            <img src="bear-adventure-page-3.png"
-                 alt="The friends count three butterflies"
-                 class="story-page-image">
-            <button class="story-continue-button" id="bearNext3">
+       
+<!-- PAGE 3: BUTTERFLY COUNT -->
+<section class="bear-story-page" id="bearPage3">
+
+    <div class="bear-picture-area">
+        <img src="bear-adventure-page-3.png"
+             alt="Annabelle, Aurora, and Bear counting three colorful butterflies"
+             class="story-page-image">
+
+        <!-- Tap the pink butterfly -->
+        <button class="butterfly-hotspot"
+                id="butterfly1"
+                aria-label="Find the pink butterfly"></button>
+
+        <!-- Tap the blue butterfly -->
+        <button class="butterfly-hotspot"
+                id="butterfly2"
+                aria-label="Find the blue butterfly"></button>
+
+        <!-- Tap the orange butterfly -->
+        <button class="butterfly-hotspot"
+                id="butterfly3"
+                aria-label="Find the orange butterfly"></button>
+
+        <!-- Counting popup -->
+        <div class="bear-popup-area butterfly-popup">
+
+            <p id="butterflyCountDisplay"
+               class="bear-interaction-message">
+                🦋 Butterflies found: 0 of 3
+            </p>
+
+            <p id="butterflyWinMessage"
+               class="bear-interaction-message"
+               style="display:none;">
+                🌟 You found all three butterflies!
+                Great counting!
+            </p>
+
+            <button class="story-continue-button"
+                    id="bearNext3"
+                    style="display:none;">
                 Next Page ✨
             </button>
-        </section>
+
+        </div>
+    </div>
+
+</section>
 
         <!-- PAGE 4 -->
         <section class="bear-story-page" id="bearPage4" style="display:none">
