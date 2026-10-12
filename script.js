@@ -1597,6 +1597,3 @@ function startConfettiRain() {
     }
 }
 
-
-/* TEMPORARY CONFETTI TEST */
-startConfettiRain();
