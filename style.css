@@ -1219,3 +1219,56 @@ img {
 #redFlowerPopup .story-continue-button {
     pointer-events: auto;
 }
+
+
+/* THE LITTLE BUTTERFLY: COUNT THE FLOWERS */
+
+.count-flower-hotspot {
+    position: absolute;
+    z-index: 5;
+    width: 20%;
+    height: 24%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 3px dashed transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.count-flower-hotspot:focus-visible {
+    border-color: #8a54d6;
+    outline: 3px solid white;
+}
+
+/* Red flower on the left */
+#countFlower1 {
+    left: 24%;
+    top: 64%;
+}
+
+/* Yellow flower in the middle */
+#countFlower2 {
+    left: 50%;
+    top: 65%;
+}
+
+/* Blue flower on the right */
+#countFlower3 {
+    left: 77%;
+    top: 64%;
+}
+
+.butterfly-count-popup {
+    top: 82%;
+}
+
+.butterfly-count-popup .bear-interaction-message {
+    background: #fff8d9;
+    border-color: #e8b84b;
+    color: #704c12;
+    max-width: 100%;
+}
+
+.butterfly-count-popup .story-continue-button {
+    pointer-events: auto;
+}
