@@ -689,15 +689,66 @@
 
 </section>
 
+<!-- PAGE 3: COUNT THE FLOWERS -->
+<section class="butterfly-story-page" id="butterflyPage3">
 
-        <section class="butterfly-story-page" id="butterflyPage3" style="display:none">
-            <img src="little-butterfly-page-3.png"
-                 alt="Count the Flowers"
-                 class="story-page-image">
-            <button class="story-continue-button" id="butterflyNext3">
+    <div class="butterfly-picture-area">
+
+        <img src="little-butterfly-page-3.png"
+             alt="Marlowe and Storm counting three colorful flowers"
+             class="story-page-image">
+
+        <!-- Red flower -->
+        <button class="count-flower-hotspot"
+                id="countFlower1"
+                aria-label="Count the first flower">
+        </button>
+
+        <!-- Yellow flower -->
+        <button class="count-flower-hotspot"
+                id="countFlower2"
+                aria-label="Count the second flower">
+        </button>
+
+        <!-- Blue flower -->
+        <button class="count-flower-hotspot"
+                id="countFlower3"
+                aria-label="Count the third flower">
+        </button>
+
+        <!-- Counting popup -->
+        <div class="bear-popup-area butterfly-count-popup"
+             id="butterflyCountPopup">
+
+            <p class="bear-interaction-message"
+               id="butterflyFlowerCount">
+                🌼 Flowers found: 0 of 3
+            </p>
+
+            <p class="bear-interaction-message"
+               id="butterflyCountWinMessage"
+               style="display:none;">
+                🎉 You counted all three flowers!
+            </p>
+
+            <button class="story-continue-button"
+                    id="butterflyNext3Popup"
+                    style="display:none;">
                 Next Page ✨
             </button>
-        </section>
+
+        </div>
+
+    </div>
+
+    <button class="story-continue-button"
+            id="butterflyNext3"
+            style="display:none;">
+        Next Page ✨
+    </button>
+
+</section>
+
 
         <section class="butterfly-story-page" id="butterflyPage4" style="display:none">
             <img src="little-butterfly-page-4.png"
