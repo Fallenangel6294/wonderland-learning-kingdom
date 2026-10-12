@@ -579,14 +579,44 @@
 
 
         <!-- PAGE 5 -->
-        <section class="bear-story-page" id="bearPage5" style="display:none">
-            <img src="bear-adventure-page-5.png"
-                 alt="The friends discover the golden flower"
-                 class="story-page-image">
-            <button class="story-continue-button" id="bearNext5">
+        
+<!-- PAGE 5: THE GOLDEN FLOWER -->
+<section class="bear-story-page" id="bearPage5">
+
+    <div class="bear-picture-area">
+
+        <img src="bear-adventure-page-5.png"
+             alt="Annabelle, Aurora, and Bear discovering a glowing golden flower beside a sparkling pond"
+             class="story-page-image">
+
+        <!-- Clickable golden flower -->
+        <button class="golden-flower-hotspot"
+                id="goldenFlowerHotspot"
+                aria-label="Discover the golden flower">
+        </button>
+
+        <!-- Magical discovery popup -->
+        <div class="bear-popup-area"
+             id="goldenFlowerPopup"
+             style="display:none;">
+
+            <p class="bear-interaction-message"
+               id="goldenFlowerMessage">
+                🌟 You discovered the Golden Flower!
+            </p>
+
+            <button class="story-continue-button"
+                    id="bearNext5"
+                    style="display:none;">
                 Next Page ✨
             </button>
-        </section>
+
+        </div>
+
+    </div>
+
+</section>
+
 
         <!-- PAGE 6 -->
         <section class="bear-story-page" id="bearPage6" style="display:none">
