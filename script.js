@@ -2146,3 +2146,30 @@ showButterflyPage = function (pageNumber) {
 butterflyNext3Popup.onclick = function () {
     showButterflyPage(4);
 };
+
+/* ========================================
+   WORD MATCH: WORD TO PICTURE QUESTIONS
+======================================== */
+
+const wordToPictureQuestions = [
+    { picture: "🐱", word: "CAT", choices: ["CAT", "DOG", "SUN"] },
+    { picture: "🐶", word: "DOG", choices: ["CUP", "DOG", "CAT"] },
+    { picture: "☀️", word: "SUN", choices: ["MOON", "SUN", "STAR"] },
+    { picture: "🍎", word: "APPLE", choices: ["BALL", "APPLE", "FISH"] },
+    { picture: "🐟", word: "FISH", choices: ["BIRD", "FISH", "DUCK"] },
+    { picture: "⚽", word: "BALL", choices: ["BALL", "BOOK", "CUP"] },
+    { picture: "🌙", word: "MOON", choices: ["SUN", "STAR", "MOON"] },
+    { picture: "🐰", word: "BUNNY", choices: ["BEAR", "BUNNY", "CAT"] },
+    { picture: "🚗", word: "CAR", choices: ["BUS", "CAR", "BOAT"] },
+    { picture: "🐻", word: "BEAR", choices: ["BEAR", "DUCK", "FROG"] },
+    { picture: "⭐", word: "STAR", choices: ["HEART", "MOON", "STAR"] },
+    { picture: "🚌", word: "BUS", choices: ["CAR", "BUS", "TRAIN"] },
+    { picture: "🍌", word: "BANANA", choices: ["APPLE", "BANANA", "GRAPE"] },
+    { picture: "🦆", word: "DUCK", choices: ["DUCK", "FISH", "BIRD"] },
+    { picture: "🐸", word: "FROG", choices: ["CAT", "FROG", "BEAR"] },
+    { picture: "🌈", word: "RAINBOW", choices: ["CLOUD", "SUN", "RAINBOW"] },
+    { picture: "🧸", word: "TEDDY", choices: ["TEDDY", "BALL", "BOOK"] },
+    { picture: "🥛", word: "MILK", choices: ["WATER", "JUICE", "MILK"] },
+    { picture: "🐦", word: "BIRD", choices: ["BIRD", "DUCK", "FISH"] },
+    { picture: "🍓", word: "BERRY", choices: ["APPLE", "BERRY", "BANANA"] }
+];
