@@ -2108,3 +2108,7 @@ showButterflyPage = function (pageNumber) {
         resetButterflyFlowerGame();
     }
 };
+
+butterflyNext3Popup.onclick = function () {
+    showButterflyPage(4);
+};
