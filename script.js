@@ -10,9 +10,12 @@ const kingdomScreen =
 
 const castleScreen =
     document.getElementById("castleScreen");
+
 const wordMatchScreen = document.getElementById("wordMatchScreen");
 
 const wordMatchButton = document.getElementById("wordMatchButton");
+
+const wordMatchMenu = document.getElementById("wordMatchMenu");
 
 const storybookCastle =
     document.getElementById("storybookCastle");
@@ -269,12 +272,14 @@ backToKingdom.addEventListener("click", function () {
     kingdomScreen.style.display = "block";
 
 });
-// Open Word Match from the Prince's Throne
 
 wordMatchButton.addEventListener("click", function () {
     castleScreen.style.display = "none";
     wordMatchScreen.style.display = "block";
+
+    wordMatchMenu.style.display = "none";
 });
+
 
 // Return to the Storybook Castle from Word Match
 
