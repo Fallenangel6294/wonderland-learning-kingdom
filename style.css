@@ -1272,3 +1272,33 @@ img {
 .butterfly-count-popup .story-continue-button {
     pointer-events: auto;
 }
+
+
+/* ========================================
+   WORD MATCH MAGIC SCREEN
+======================================== */
+
+.word-match-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #241238;
+}
+
+.word-match-background {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    object-fit: cover;
+}
+
+.word-match-screen .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
