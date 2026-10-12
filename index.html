@@ -529,14 +529,54 @@
 </section>
 
         <!-- PAGE 4 -->
-        <section class="bear-story-page" id="bearPage4" style="display:none">
-            <img src="bear-adventure-page-4.png"
-                 alt="The friends choose between two forest paths"
-                 class="story-page-image">
-            <button class="story-continue-button" id="bearNext4">
+       
+<!-- PAGE 4: WHICH WAY, BEAR? -->
+<section class="bear-story-page" id="bearPage4">
+
+    <div class="bear-picture-area">
+
+        <img src="bear-adventure-page-4.png"
+             alt="Annabelle, Aurora, and Bear choosing between Mushroom Trail and Flower Trail"
+             class="story-page-image">
+
+        <!-- Clickable Mushroom Trail -->
+        <button class="bear-path-hotspot"
+                id="mushroomTrailHotspot"
+                aria-label="Choose Mushroom Trail">
+        </button>
+
+        <!-- Clickable Flower Trail -->
+        <button class="bear-path-hotspot"
+                id="flowerTrailHotspot"
+                aria-label="Choose Flower Trail">
+        </button>
+
+        <!-- Message popup -->
+        <div class="bear-popup-area" id="pathChoicePopup"
+             style="display:none;">
+
+            <p class="bear-interaction-message"
+               id="pathChoiceMessage">
+            </p>
+
+            <button class="story-continue-button"
+                    id="tryFlowerTrailAgain"
+                    style="display:none;">
+                Try Again 🌸
+            </button>
+
+            <button class="story-continue-button"
+                    id="bearNext4"
+                    style="display:none;">
                 Next Page ✨
             </button>
-        </section>
+
+        </div>
+
+    </div>
+
+</section>
+
 
         <!-- PAGE 5 -->
         <section class="bear-story-page" id="bearPage5" style="display:none">
