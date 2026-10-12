@@ -1900,3 +1900,80 @@ showBearPage = function (pageNumber) {
         resetGoldenFlowerGame();
     }
 };
+
+/* =================================
+   THE LITTLE BUTTERFLY STORY
+================================= */
+
+const butterflyStoryButton =
+    document.getElementById("butterflyStoryButton");
+
+const butterflyStoryScreen =
+    document.getElementById("butterflyStoryScreen");
+
+const backToStoryLibraryFromButterfly =
+    document.getElementById("backToStoryLibraryFromButterfly");
+
+const finishButterflyStory =
+    document.getElementById("finishButterflyStory");
+
+// Hide the butterfly story when the website first opens.
+butterflyStoryScreen.style.display = "none";
+
+// Open the story.
+butterflyStoryButton.addEventListener("click", function () {
+    storyTimeScreen.style.display = "none";
+    butterflyStoryScreen.style.display = "block";
+    showButterflyPage(1);
+});
+
+// Display one story page at a time.
+function showButterflyPage(pageNumber) {
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById("butterflyPage" + i).style.display = "none";
+    }
+
+    document.getElementById("butterflyPage" + pageNumber).style.display = "block";
+}
+
+// Connect the Next Page buttons.
+document.getElementById("butterflyNext1").addEventListener("click", function () {
+    showButterflyPage(2);
+});
+
+document.getElementById("butterflyNext2").addEventListener("click", function () {
+    showButterflyPage(3);
+});
+
+document.getElementById("butterflyNext3").addEventListener("click", function () {
+    showButterflyPage(4);
+});
+
+document.getElementById("butterflyNext4").addEventListener("click", function () {
+    showButterflyPage(5);
+});
+
+document.getElementById("butterflyNext5").addEventListener("click", function () {
+    showButterflyPage(6);
+});
+
+// Return to Story Time.
+backToStoryLibraryFromButterfly.addEventListener("click", function () {
+    butterflyStoryScreen.style.display = "none";
+    storyTimeScreen.style.display = "block";
+});
+
+// Award 3 Learning Stars when the story is completed.
+finishButterflyStory.addEventListener("click", function () {
+    const completedActivities = JSON.parse(
+        localStorage.getItem("wonderlandCompletedActivities") || "[]"
+    );
+
+    if (!completedActivities.includes("little-butterfly-story")) {
+        awardLearningStars(3, "little-butterfly-story");
+        startConfettiRain();
+    }
+
+    butterflyStoryScreen.style.display = "none";
+    storyTimeScreen.style.display = "block";
+});
