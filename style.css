@@ -1042,3 +1042,53 @@ img {
     margin: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
+
+/* BUTTERFLY COUNT GAME */
+
+.butterfly-hotspot {
+    position: absolute;
+    z-index: 5;
+    width: 19%;
+    height: 20%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 3px dashed transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.butterfly-hotspot:focus-visible {
+    border-color: #8a54d6;
+    outline: 3px solid white;
+}
+
+/* Pink butterfly, upper right */
+#butterfly1 {
+    left: 84%;
+    top: 17%;
+}
+
+/* Blue butterfly, middle */
+#butterfly2 {
+    left: 66%;
+    top: 32%;
+}
+
+/* Orange butterfly, right */
+#butterfly3 {
+    left: 90%;
+    top: 34%;
+}
+
+.butterfly-popup {
+    top: 82%;
+}
+
+.butterfly-popup .bear-interaction-message {
+    max-width: 100%;
+}
+
+.butterfly-popup #butterflyWinMessage {
+    background: #fff3c4;
+    border-color: #e8b84b;
+}
