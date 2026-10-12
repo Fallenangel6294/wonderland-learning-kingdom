@@ -1510,3 +1510,46 @@ function showQuestComplete() {
     });
 
 }
+
+/* WONDERLAND LEARNING STAR SYSTEM */
+
+let learningStars = Number(
+    localStorage.getItem("wonderlandLearningStars") || 0
+);
+
+const starCountDisplay = document.getElementById("starCount");
+
+function updateStarCounter() {
+    if (starCountDisplay) {
+        starCountDisplay.textContent = learningStars;
+    }
+}
+
+function awardLearningStars(amount = 1, activityName = "") {
+    const completedActivities = JSON.parse(
+        localStorage.getItem("wonderlandCompletedActivities") || "[]"
+    );
+
+    if (activityName && completedActivities.includes(activityName)) {
+        return;
+    }
+
+    if (activityName) {
+        completedActivities.push(activityName);
+        localStorage.setItem(
+            "wonderlandCompletedActivities",
+            JSON.stringify(completedActivities)
+        );
+    }
+
+    learningStars += amount;
+
+    localStorage.setItem(
+        "wonderlandLearningStars",
+        learningStars
+    );
+
+    updateStarCounter();
+}
+
+updateStarCounter();
