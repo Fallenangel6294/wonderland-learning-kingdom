@@ -918,3 +918,24 @@ img {
 #finalStoryMessage {
     display: none;
 }
+
+/* Learning Star counter on the Kingdom map */
+.learning-star-counter {
+    position: absolute;
+    top: 2%;
+    right: 14%;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 150px;
+    padding: 8px 18px;
+    border: 3px solid #ffffff;
+    border-radius: 40px;
+    background: #6334bd;
+    color: #ffffff;
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
