@@ -10,6 +10,9 @@ const kingdomScreen =
 
 const castleScreen =
     document.getElementById("castleScreen");
+const wordMatchScreen = document.getElementById("wordMatchScreen");
+
+const wordMatchButton = document.getElementById("wordMatchButton");
 
 const storybookCastle =
     document.getElementById("storybookCastle");
