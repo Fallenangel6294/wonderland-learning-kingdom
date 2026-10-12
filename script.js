@@ -1615,3 +1615,80 @@ function startConfettiRain() {
     }
 }
 
+
+/* =================================
+   BEAR'S BIG ADVENTURE
+================================= */
+
+const bearAdventureButton =
+    document.getElementById("bearAdventureButton");
+
+const bearStoryScreen =
+    document.getElementById("bearStoryScreen");
+
+const backToStoryLibraryFromBear =
+    document.getElementById("backToStoryLibraryFromBear");
+
+const finishBearStory =
+    document.getElementById("finishBearStory");
+
+// Keep Bear's story hidden when the website first opens.
+bearStoryScreen.style.display = "none";
+
+// Open Bear's Big Adventure.
+bearAdventureButton.addEventListener("click", function () {
+    storyTimeScreen.style.display = "none";
+    bearStoryScreen.style.display = "block";
+    showBearPage(1);
+});
+
+// Display only the selected story page.
+function showBearPage(pageNumber) {
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById("bearPage" + i).style.display = "none";
+    }
+
+    document.getElementById("bearPage" + pageNumber).style.display = "block";
+}
+
+// Connect the Next Page buttons.
+document.getElementById("bearNext1").addEventListener("click", function () {
+    showBearPage(2);
+});
+
+document.getElementById("bearNext2").addEventListener("click", function () {
+    showBearPage(3);
+});
+
+document.getElementById("bearNext3").addEventListener("click", function () {
+    showBearPage(4);
+});
+
+document.getElementById("bearNext4").addEventListener("click", function () {
+    showBearPage(5);
+});
+
+document.getElementById("bearNext5").addEventListener("click", function () {
+    showBearPage(6);
+});
+
+// Return to the Story Time library.
+backToStoryLibraryFromBear.addEventListener("click", function () {
+    bearStoryScreen.style.display = "none";
+    storyTimeScreen.style.display = "block";
+});
+
+// Award the story reward when the adventure is finished.
+finishBearStory.addEventListener("click", function () {
+    const completedActivities = JSON.parse(
+        localStorage.getItem("wonderlandCompletedActivities") || "[]"
+    );
+
+    if (!completedActivities.includes("bear-big-adventure")) {
+        awardLearningStars(3, "bear-big-adventure");
+        startConfettiRain();
+    }
+
+    bearStoryScreen.style.display = "none";
+    storyTimeScreen.style.display = "block";
+});
