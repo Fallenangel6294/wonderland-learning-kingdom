@@ -1853,3 +1853,50 @@ showBearPage = function (pageNumber) {
         resetPathChoiceGame();
     }
 };
+
+/* THE GOLDEN FLOWER GAME */
+
+const goldenFlowerHotspot =
+    document.getElementById("goldenFlowerHotspot");
+
+const goldenFlowerPopup =
+    document.getElementById("goldenFlowerPopup");
+
+const goldenFlowerMessage =
+    document.getElementById("goldenFlowerMessage");
+
+const bearNext5 =
+    document.getElementById("bearNext5");
+
+function resetGoldenFlowerGame() {
+    goldenFlowerPopup.style.display = "none";
+    goldenFlowerHotspot.style.display = "block";
+    bearNext5.style.display = "none";
+
+    goldenFlowerMessage.textContent =
+        "🌟 You discovered the Golden Flower!";
+}
+
+goldenFlowerHotspot.addEventListener("click", function () {
+    goldenFlowerHotspot.style.display = "none";
+    goldenFlowerPopup.style.display = "flex";
+
+    goldenFlowerMessage.textContent =
+        "🌟 The Golden Flower shines with magic! " +
+        "You helped Bear find something beautiful!";
+
+    bearNext5.style.display = "inline-block";
+
+    startConfettiRain();
+});
+
+// Reset the interaction whenever Page 5 opens.
+const originalShowBearPageForFlower = showBearPage;
+
+showBearPage = function (pageNumber) {
+    originalShowBearPageForFlower(pageNumber);
+
+    if (pageNumber === 5) {
+        resetGoldenFlowerGame();
+    }
+};
