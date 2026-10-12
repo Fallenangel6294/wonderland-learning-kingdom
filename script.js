@@ -1782,3 +1782,74 @@ showBearPage = function (pageNumber) {
         resetButterflyGame();
     }
 };
+
+/* WHICH WAY, BEAR? PATH CHOICE GAME */
+
+const mushroomTrailHotspot =
+    document.getElementById("mushroomTrailHotspot");
+
+const flowerTrailHotspot =
+    document.getElementById("flowerTrailHotspot");
+
+const pathChoicePopup =
+    document.getElementById("pathChoicePopup");
+
+const pathChoiceMessage =
+    document.getElementById("pathChoiceMessage");
+
+const tryFlowerTrailAgain =
+    document.getElementById("tryFlowerTrailAgain");
+
+const bearNext4 =
+    document.getElementById("bearNext4");
+
+function resetPathChoiceGame() {
+    pathChoicePopup.style.display = "none";
+    tryFlowerTrailAgain.style.display = "none";
+    bearNext4.style.display = "none";
+
+    mushroomTrailHotspot.style.display = "block";
+    flowerTrailHotspot.style.display = "block";
+}
+
+mushroomTrailHotspot.addEventListener("click", function () {
+    pathChoicePopup.style.display = "flex";
+
+    pathChoiceMessage.textContent =
+        "🍄 The mushrooms look interesting! " +
+        "But which trail has the flower petals?";
+
+    tryFlowerTrailAgain.style.display = "inline-block";
+    bearNext4.style.display = "none";
+});
+
+flowerTrailHotspot.addEventListener("click", function () {
+    pathChoicePopup.style.display = "flex";
+
+    pathChoiceMessage.textContent =
+        "🌸 You found the Flower Trail! " +
+        "Let's follow those petals to the beautiful flower!";
+
+    tryFlowerTrailAgain.style.display = "none";
+    bearNext4.style.display = "inline-block";
+
+    mushroomTrailHotspot.style.display = "none";
+    flowerTrailHotspot.style.display = "none";
+
+    startConfettiRain();
+});
+
+tryFlowerTrailAgain.addEventListener("click", function () {
+    resetPathChoiceGame();
+});
+
+// Reset the game whenever Page 4 opens.
+const originalShowBearPageForPaths = showBearPage;
+
+showBearPage = function (pageNumber) {
+    originalShowBearPageForPaths(pageNumber);
+
+    if (pageNumber === 4) {
+        resetPathChoiceGame();
+    }
+};
