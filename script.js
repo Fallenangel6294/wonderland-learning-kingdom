@@ -2027,6 +2027,11 @@ showButterflyPage = function (pageNumber) {
     }
 };
 
+butterflyNext2Popup.addEventListener("click", function () {
+    showButterflyPage(3);
+});
+
+
 /* THE LITTLE BUTTERFLY: COUNT THE FLOWERS */
 
 let butterflyFlowersFound = [];
