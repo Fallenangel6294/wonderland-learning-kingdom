@@ -1092,3 +1092,47 @@ img {
     background: #fff3c4;
     border-color: #e8b84b;
 }
+
+/* WHICH WAY, BEAR? PATH CHOICE GAME */
+
+.bear-path-hotspot {
+    position: absolute;
+    z-index: 5;
+    top: 48%;
+    width: 36%;
+    height: 28%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 3px dashed transparent;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+/* Mushroom Trail, left side */
+#mushroomTrailHotspot {
+    left: 19%;
+}
+
+/* Flower Trail, right side */
+#flowerTrailHotspot {
+    left: 79%;
+}
+
+.bear-path-hotspot:focus-visible {
+    border-color: #8a54d6;
+    outline: 3px solid white;
+}
+
+#pathChoicePopup {
+    top: 83%;
+}
+
+#pathChoicePopup .bear-interaction-message {
+    background: #fff8d9;
+    border-color: #e8b84b;
+    max-width: 100%;
+}
+
+#pathChoicePopup .story-continue-button {
+    pointer-events: auto;
+}
