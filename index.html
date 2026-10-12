@@ -650,14 +650,45 @@
             </button>
         </section>
 
-        <section class="butterfly-story-page" id="butterflyPage2" style="display:none">
-            <img src="little-butterfly-page-2.png"
-                 alt="Find the Red Flower"
-                 class="story-page-image">
-            <button class="story-continue-button" id="butterflyNext2">
+        
+<!-- PAGE 2: FIND THE RED FLOWER -->
+<section class="butterfly-story-page" id="butterflyPage2">
+
+    <div class="butterfly-picture-area">
+        <img src="little-butterfly-page-2.png"
+             alt="Marlowe and Storm helping their butterfly friend find the red flower"
+             class="story-page-image">
+
+        <button class="butterfly-red-flower-hotspot"
+                id="redFlowerHotspot"
+                aria-label="Find the red flower">
+        </button>
+
+        <div class="bear-popup-area" id="redFlowerPopup"
+             style="display:none;">
+
+            <p class="bear-interaction-message"
+               id="redFlowerMessage">
+                🌺 You found the red flower!
+            </p>
+
+            <button class="story-continue-button"
+                    id="butterflyNext2Popup"
+                    style="display:none;">
                 Next Page ✨
             </button>
-        </section>
+
+        </div>
+    </div>
+
+    <button class="story-continue-button"
+            id="butterflyNext2"
+            style="display:none;">
+        Next Page ✨
+    </button>
+
+</section>
+
 
         <section class="butterfly-story-page" id="butterflyPage3" style="display:none">
             <img src="little-butterfly-page-3.png"
