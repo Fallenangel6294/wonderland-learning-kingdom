@@ -2341,3 +2341,30 @@ backToWordMatchMenu.addEventListener("click", function () {
     wordPictureMenu.style.display = "flex";
 });
 
+
+/* ========================================
+   WORD TO WORD QUESTION BANK
+======================================== */
+
+const wordToWordQuestions = [
+    { word: "CAT", choices: ["DOG", "CAT", "SUN"] },
+    { word: "DOG", choices: ["DOG", "CUP", "CAR"] },
+    { word: "SUN", choices: ["MOON", "SUN", "STAR"] },
+    { word: "APPLE", choices: ["BALL", "APPLE", "FISH"] },
+    { word: "FISH", choices: ["BIRD", "FISH", "DUCK"] },
+    { word: "BALL", choices: ["BALL", "BOOK", "CUP"] },
+    { word: "MOON", choices: ["SUN", "STAR", "MOON"] },
+    { word: "BUNNY", choices: ["BEAR", "BUNNY", "CAT"] },
+    { word: "CAR", choices: ["BUS", "CAR", "BOAT"] },
+    { word: "BEAR", choices: ["BEAR", "DUCK", "FROG"] },
+    { word: "STAR", choices: ["HEART", "MOON", "STAR"] },
+    { word: "BUS", choices: ["CAR", "BUS", "TRAIN"] },
+    { word: "BANANA", choices: ["APPLE", "BANANA", "GRAPE"] },
+    { word: "DUCK", choices: ["DUCK", "FISH", "BIRD"] },
+    { word: "FROG", choices: ["CAT", "FROG", "BEAR"] },
+    { word: "RAINBOW", choices: ["CLOUD", "SUN", "RAINBOW"] },
+    { word: "TEDDY", choices: ["TEDDY", "BALL", "BOOK"] },
+    { word: "MILK", choices: ["WATER", "JUICE", "MILK"] },
+    { word: "BIRD", choices: ["BIRD", "DUCK", "FISH"] },
+    { word: "BERRY", choices: ["APPLE", "BERRY", "BANANA"] }
+];
