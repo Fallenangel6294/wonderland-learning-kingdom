@@ -2119,10 +2119,15 @@ img {
     left: 20px;
     z-index: 10;
 }
-/* Discovery Woods map button */
 .discovery-woods-button {
+    position: absolute;
     left: 10%;
     top: 45%;
     width: 25%;
     height: 25%;
+    background: rgba(255, 0, 0, 0.35);
+    border: 3px solid red;
+    color: white;
+    z-index: 100;
+    cursor: pointer;
 }
