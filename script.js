@@ -11,6 +11,12 @@ const kingdomScreen =
 const castleScreen =
     document.getElementById("castleScreen");
 
+const discoveryWoodsScreen = document.getElementById("discoveryWoodsScreen");
+
+const discoveryWoodsButton = document.getElementById("discoveryWoodsButton");
+
+const backFromDiscoveryWoods = document.getElementById("backFromDiscoveryWoods");
+
 const spellingButton = document.getElementById("spellingButton");
 
 const spellingWorkshopScreen = document.getElementById("spellingWorkshopScreen");
@@ -93,6 +99,18 @@ storybookCastle.addEventListener("click", function () {
     kingdomScreen.style.display = "none";
     castleScreen.style.display = "block";
 
+});
+
+// Enter Discovery Woods
+discoveryWoodsButton.addEventListener("click", function () {
+    kingdomScreen.style.display = "none";
+    discoveryWoodsScreen.style.display = "block";
+});
+
+// Return from Discovery Woods to the kingdom map
+backFromDiscoveryWoods.addEventListener("click", function () {
+    discoveryWoodsScreen.style.display = "none";
+    kingdomScreen.style.display = "block";
 });
 
 storyTimeButton.addEventListener("click", function () {
