@@ -2730,6 +2730,7 @@ function startSpellingRound() {
     const answerArea = document.getElementById("spellingAnswerArea");
     const choicesArea = document.getElementById("spellingLetterChoices");
     const feedback = document.getElementById("spellingFeedback");
+    const question = document.getElementById("spellingQuestion");
 
     if (!answerArea || !choicesArea || !feedback) return;
 
@@ -2740,6 +2741,9 @@ function startSpellingRound() {
     answerArea.innerHTML = "";
     choicesArea.innerHTML = "";
     feedback.textContent = "";
+    if (question) {
+    question.textContent = currentSpellingWord.word;
+}
 
     const letters = currentSpellingWord.word.split("");
 
