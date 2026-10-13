@@ -11,6 +11,12 @@ const kingdomScreen =
 const castleScreen =
     document.getElementById("castleScreen");
 
+const spellingButton = document.getElementById("spellingButton");
+
+const spellingWorkshopScreen = document.getElementById("spellingWorkshopScreen");
+
+const backFromSpellingWorkshop = document.getElementById("backFromSpellingWorkshop");
+
 const wordMatchScreen = document.getElementById("wordMatchScreen");
 
 const wordMatchButton = document.getElementById("wordMatchButton");
@@ -299,6 +305,18 @@ backFromWordMatch.addEventListener("click", function () {
 startWordMatch.addEventListener("click", function () {
     wordMatchMenu.style.display = "flex";
     startWordMatch.style.display = "none";
+});
+
+/* SPELLING WORKSHOP NAVIGATION */
+
+spellingButton.addEventListener("click", function () {
+    castleScreen.style.display = "none";
+    spellingWorkshopScreen.style.display = "block";
+});
+
+backFromSpellingWorkshop.addEventListener("click", function () {
+    spellingWorkshopScreen.style.display = "none";
+    castleScreen.style.display = "block";
 });
 
 
