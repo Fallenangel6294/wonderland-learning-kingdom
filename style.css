@@ -2131,3 +2131,19 @@ img {
     z-index: 100;
     cursor: pointer;
 }
+/* Discovery Woods learning areas */
+.woods-area-button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: transparent;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.animal-friends-button {
+    left: 21%;
+    top: 44%;
+    width: 27%;
+    height: 16%;
+}
