@@ -2368,3 +2368,149 @@ const wordToWordQuestions = [
     { word: "BIRD", choices: ["BIRD", "DUCK", "FISH"] },
     { word: "BERRY", choices: ["APPLE", "BERRY", "BANANA"] }
 ];
+
+/* ========================================
+   WORD TO WORD GAME LOGIC
+======================================== */
+
+const wordToWordButton = document.getElementById("wordToWordButton");
+const wordWordGame = document.getElementById("wordWordGame");
+const wordWordMenu = document.getElementById("wordMatchMenu");
+const wordWordTarget = document.getElementById("wordWordTarget");
+const wordWordChoices = document.getElementById("wordWordChoices");
+const wordWordProgress = document.getElementById("wordWordProgress");
+const wordWordFeedback = document.getElementById("wordWordFeedback");
+const backToWordMenu = document.getElementById("backToWordMenu");
+
+let wordWordRound = [];
+let wordWordQuestionIndex = 0;
+let wordWordScore = 0;
+let wordWordAnswered = false;
+
+function startWordWordRound() {
+    wordWordRound = [...wordToWordQuestions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5);
+
+    wordWordQuestionIndex = 0;
+    wordWordScore = 0;
+
+    showWordWordQuestion();
+}
+
+function showWordWordQuestion() {
+    const question = wordWordRound[wordWordQuestionIndex];
+
+    wordWordAnswered = false;
+
+    wordWordProgress.textContent =
+        `Question ${wordWordQuestionIndex + 1} of 5`;
+
+    wordWordTarget.textContent = question.word;
+    wordWordFeedback.textContent = "";
+    wordWordChoices.innerHTML = "";
+
+    const shuffledChoices = [...question.choices]
+        .sort(() => Math.random() - 0.5);
+
+    shuffledChoices.forEach(function (choice) {
+        const button = document.createElement("button");
+
+        button.className = "word-word-choice";
+        button.textContent = choice;
+
+        button.addEventListener("click", function () {
+            checkWordWordAnswer(choice, question);
+        });
+
+        wordWordChoices.appendChild(button);
+    });
+}
+
+function checkWordWordAnswer(choice, question) {
+    if (wordWordAnswered) return;
+
+    wordWordAnswered = true;
+
+    const buttons = wordWordChoices.querySelectorAll("button");
+
+    buttons.forEach(function (button) {
+        button.disabled = true;
+    });
+
+    if (choice === question.word) {
+        wordWordScore++;
+
+        wordWordFeedback.textContent =
+            "🌟 Fantastic! You found the matching word!";
+
+        awardLearningStars(1);
+    } else {
+        wordWordFeedback.textContent =
+            `Good try! The matching word is ${question.word}. 💜`;
+    }
+
+    const nextButton = document.createElement("button");
+
+    nextButton.className = "word-word-choice";
+    nextButton.textContent =
+        wordWordQuestionIndex === 4
+            ? "See My Results! ✨"
+            : "Next Question ➜";
+
+    nextButton.style.gridColumn = "1 / -1";
+
+    nextButton.addEventListener("click", function () {
+        wordWordQuestionIndex++;
+
+        if (wordWordQuestionIndex < 5) {
+            showWordWordQuestion();
+        } else {
+            finishWordWordRound();
+        }
+    });
+
+    wordWordChoices.appendChild(nextButton);
+}
+
+function finishWordWordRound() {
+    wordWordProgress.textContent = "Round Complete!";
+
+    wordWordTarget.textContent =
+        wordWordScore === 5 ? "🏆" : "🌟";
+
+    wordWordChoices.innerHTML = "";
+
+    wordWordFeedback.textContent =
+        `You got ${wordWordScore} out of 5 correct! Great learning!`;
+
+    if (wordWordScore === 5) {
+        startConfettiRain();
+    }
+
+    const menuButton = document.createElement("button");
+
+    menuButton.className = "word-word-choice";
+    menuButton.textContent = "🏰 Choose Another Game";
+
+    menuButton.style.gridColumn = "1 / -1";
+
+    menuButton.addEventListener("click", function () {
+        wordWordGame.style.display = "none";
+        wordWordMenu.style.display = "flex";
+    });
+
+    wordWordChoices.appendChild(menuButton);
+}
+
+wordToWordButton.addEventListener("click", function () {
+    wordWordMenu.style.display = "none";
+    wordWordGame.style.display = "flex";
+
+    startWordWordRound();
+});
+
+backToWordMenu.addEventListener("click", function () {
+    wordWordGame.style.display = "none";
+    wordWordMenu.style.display = "flex";
+});
