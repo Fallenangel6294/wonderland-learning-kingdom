@@ -1259,7 +1259,7 @@ function showSkillSelection() {
     `;
 
     const huntChoices =
-        document.querySelectorAll(".letter-hunt-choice");
+        document.querySelectorAll(".letter-choice");
 
     const answerMessage =
         document.getElementById("answerMessage");
