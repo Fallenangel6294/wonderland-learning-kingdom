@@ -1878,3 +1878,213 @@ img {
         font-size: 44px;
     }
 }
+
+/* ========================================
+   SPELLING WORKSHOP
+======================================== */
+
+.spelling-workshop-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #342044;
+}
+
+.spelling-workshop-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Transparent game layer */
+.spelling-game-area {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100vh;
+    padding: 100px 20px 35px;
+    gap: 18px;
+
+    text-align: center;
+    color: white;
+}
+
+/* Floating title */
+.spelling-title {
+    margin: 0;
+    color: #fff0a8;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: bold;
+    text-shadow:
+        0 3px 5px #321343,
+        0 0 14px #8c48bd;
+}
+
+/* Floating instructions */
+.spelling-instruction {
+    max-width: 650px;
+    margin: 0;
+
+    font-size: clamp(18px, 2.5vw, 25px);
+    font-weight: bold;
+    line-height: 1.4;
+
+    text-shadow:
+        0 2px 5px #321343,
+        0 0 10px #321343;
+}
+
+/* The word to spell */
+.spelling-question {
+    margin-top: 8px;
+    color: #fff0a8;
+
+    font-size: clamp(42px, 7vw, 68px);
+    font-weight: 900;
+    letter-spacing: 8px;
+
+    text-shadow:
+        0 4px 5px #321343,
+        0 0 18px #8c48bd;
+}
+
+/* Area where selected letters will appear */
+.spelling-answer-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    min-height: 76px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Individual letter tiles */
+.spelling-letter-tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 62px;
+    height: 66px;
+
+    border: 3px solid #ffe58a;
+    border-radius: 16px;
+
+    background: rgba(255, 248, 223, 0.94);
+    color: #542a78;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 0 #57316d;
+    cursor: pointer;
+}
+
+/* Floating letter choices */
+.spelling-letter-choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 650px;
+    margin-top: 10px;
+}
+
+.spelling-letter-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 66px;
+    height: 70px;
+
+    border: 3px solid #ffe58a;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.94);
+    color: #542a78;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 0 #57316d;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.spelling-letter-choice:hover {
+    transform: translateY(-4px);
+    background: #fff0b8;
+}
+
+.spelling-letter-choice:disabled {
+    opacity: 0.45;
+    cursor: default;
+    transform: none;
+}
+
+.spelling-letter-choice:focus-visible,
+.spelling-letter-tile:focus-visible {
+    outline: 4px solid white;
+    outline-offset: 4px;
+}
+
+/* Encouraging feedback */
+.spelling-feedback {
+    min-height: 36px;
+    margin: 0;
+
+    font-size: clamp(18px, 2.5vw, 25px);
+    font-weight: bold;
+
+    text-shadow: 0 2px 5px #321343;
+}
+
+/* Back button stays above the garden and game */
+.spelling-workshop-screen .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+}
+
+@media (max-width: 480px) {
+    .spelling-game-area {
+        padding: 90px 12px 25px;
+        gap: 14px;
+    }
+
+    .spelling-letter-choice {
+        width: 52px;
+        height: 56px;
+        font-size: 26px;
+    }
+
+    .spelling-letter-tile {
+        width: 48px;
+        height: 54px;
+        font-size: 26px;
+    }
+
+    .spelling-answer-area,
+    .spelling-letter-choices {
+        gap: 8px;
+    }
+}
