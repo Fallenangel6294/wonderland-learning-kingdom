@@ -1919,7 +1919,7 @@ img {
     box-sizing: border-box;
     padding: 100px 20px 35px;
     gap: 18px;
-
+    translateX(150px);
     text-align: center;
     color: white;
 }
