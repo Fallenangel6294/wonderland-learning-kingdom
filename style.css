@@ -2147,3 +2147,52 @@ img {
     width: 27%;
     height: 16%;
 }
+/* =================================
+   ANIMAL FRIENDS: AGES 2–4
+================================= */
+
+.animal-friends-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #173d32;
+}
+
+.animal-friends-background {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.animal-friends-screen .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 30;
+}
+
+.animal-friends-activities {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 90%;
+    z-index: 20;
+}
+
+.animal-friends-activities button {
+    padding: 14px 22px;
+    border: 3px solid #d7b36a;
+    border-radius: 18px;
+    background: #fff3c4;
+    color: #49321e;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
