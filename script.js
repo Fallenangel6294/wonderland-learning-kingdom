@@ -2514,3 +2514,178 @@ backToWordMenu.addEventListener("click", function () {
     wordWordGame.style.display = "none";
     wordWordMenu.style.display = "flex";
 });
+
+/* ========================================
+   PICTURE TO PICTURE QUESTION BANK
+======================================== */
+
+const pictureToPictureQuestions = [
+    { picture: "🐱", choices: ["🐶", "🐱", "🐰"] },
+    { picture: "🐶", choices: ["🐶", "🐻", "🐸"] },
+    { picture: "☀️", choices: ["🌙", "⭐", "☀️"] },
+    { picture: "🍎", choices: ["🍌", "🍎", "🍓"] },
+    { picture: "🐟", choices: ["🐦", "🐟", "🦆"] },
+    { picture: "⚽", choices: ["📚", "⚽", "🎈"] },
+    { picture: "🌙", choices: ["⭐", "🌙", "☀️"] },
+    { picture: "🐰", choices: ["🐻", "🐱", "🐰"] },
+    { picture: "🚗", choices: ["🚌", "🚗", "🚂"] },
+    { picture: "🐻", choices: ["🐸", "🐻", "🐶"] },
+    { picture: "⭐", choices: ["❤️", "⭐", "🌈"] },
+    { picture: "🚌", choices: ["🚗", "🚂", "🚌"] },
+    { picture: "🍌", choices: ["🍇", "🍎", "🍌"] },
+    { picture: "🦆", choices: ["🐟", "🦆", "🐦"] },
+    { picture: "🐸", choices: ["🐱", "🐻", "🐸"] },
+    { picture: "🌈", choices: ["☁️", "🌈", "☀️"] },
+    { picture: "🧸", choices: ["⚽", "🧸", "📚"] },
+    { picture: "🥛", choices: ["🧃", "🥛", "💧"] },
+    { picture: "🐦", choices: ["🦆", "🐟", "🐦"] },
+    { picture: "🍓", choices: ["🍎", "🍌", "🍓"] }
+];
+
+/* ========================================
+   PICTURE TO PICTURE GAME LOGIC
+======================================== */
+
+const pictureToPictureButton = document.getElementById("pictureToPictureButton");
+const picturePictureGame = document.getElementById("picturePictureGame");
+const picturePictureMenu = document.getElementById("wordMatchMenu");
+const picturePictureTarget = document.getElementById("picturePictureTarget");
+const picturePictureChoices = document.getElementById("picturePictureChoices");
+const picturePictureProgress = document.getElementById("picturePictureProgress");
+const picturePictureFeedback = document.getElementById("picturePictureFeedback");
+const backToPictureMenu = document.getElementById("backToPictureMenu");
+
+let picturePictureRound = [];
+let picturePictureQuestionIndex = 0;
+let picturePictureScore = 0;
+let picturePictureAnswered = false;
+
+function startPicturePictureRound() {
+    picturePictureRound = [...pictureToPictureQuestions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5);
+
+    picturePictureQuestionIndex = 0;
+    picturePictureScore = 0;
+
+    showPicturePictureQuestion();
+}
+
+function showPicturePictureQuestion() {
+    const question = picturePictureRound[picturePictureQuestionIndex];
+
+    picturePictureAnswered = false;
+
+    picturePictureProgress.textContent =
+        `Question ${picturePictureQuestionIndex + 1} of 5`;
+
+    picturePictureTarget.textContent = question.picture;
+    picturePictureFeedback.textContent = "";
+    picturePictureChoices.innerHTML = "";
+
+    const shuffledChoices = [...question.choices]
+        .sort(() => Math.random() - 0.5);
+
+    shuffledChoices.forEach(function (choice) {
+        const button = document.createElement("button");
+
+        button.className = "picture-picture-choice";
+        button.textContent = choice;
+        button.setAttribute("aria-label", "Choose this picture");
+
+        button.addEventListener("click", function () {
+            checkPicturePictureAnswer(choice, question);
+        });
+
+        picturePictureChoices.appendChild(button);
+    });
+}
+
+function checkPicturePictureAnswer(choice, question) {
+    if (picturePictureAnswered) return;
+
+    picturePictureAnswered = true;
+
+    const buttons = picturePictureChoices.querySelectorAll("button");
+
+    buttons.forEach(function (button) {
+        button.disabled = true;
+    });
+
+    if (choice === question.picture) {
+        picturePictureScore++;
+
+        picturePictureFeedback.textContent =
+            "🌟 Fantastic! You found the matching picture!";
+
+        awardLearningStars(1);
+    } else {
+        picturePictureFeedback.textContent =
+            "Good try! Look carefully at the pictures. 💜";
+    }
+
+    const nextButton = document.createElement("button");
+
+    nextButton.className = "picture-picture-choice";
+    nextButton.textContent =
+        picturePictureQuestionIndex === 4
+            ? "See My Results! ✨"
+            : "Next Question ➜";
+
+    nextButton.style.gridColumn = "1 / -1";
+    nextButton.style.fontSize = "22px";
+
+    nextButton.addEventListener("click", function () {
+        picturePictureQuestionIndex++;
+
+        if (picturePictureQuestionIndex < 5) {
+            showPicturePictureQuestion();
+        } else {
+            finishPicturePictureRound();
+        }
+    });
+
+    picturePictureChoices.appendChild(nextButton);
+}
+
+function finishPicturePictureRound() {
+    picturePictureProgress.textContent = "Round Complete!";
+
+    picturePictureTarget.textContent =
+        picturePictureScore === 5 ? "🏆" : "🌟";
+
+    picturePictureChoices.innerHTML = "";
+
+    picturePictureFeedback.textContent =
+        `You got ${picturePictureScore} out of 5 correct! Great learning!`;
+
+    if (picturePictureScore === 5) {
+        startConfettiRain();
+    }
+
+    const menuButton = document.createElement("button");
+
+    menuButton.className = "picture-picture-choice";
+    menuButton.textContent = "🏰 Choose Another Game";
+    menuButton.style.gridColumn = "1 / -1";
+    menuButton.style.fontSize = "22px";
+
+    menuButton.addEventListener("click", function () {
+        picturePictureGame.style.display = "none";
+        picturePictureMenu.style.display = "flex";
+    });
+
+    picturePictureChoices.appendChild(menuButton);
+}
+
+pictureToPictureButton.addEventListener("click", function () {
+    picturePictureMenu.style.display = "none";
+    picturePictureGame.style.display = "flex";
+
+    startPicturePictureRound();
+});
+
+backToPictureMenu.addEventListener("click", function () {
+    picturePictureGame.style.display = "none";
+    picturePictureMenu.style.display = "flex";
+});
