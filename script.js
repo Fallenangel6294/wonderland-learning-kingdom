@@ -1273,7 +1273,7 @@ function showSkillSelection() {
             }
 
             const selectedLetter =
-                button.dataset.letter;
+                button.dataset.answer;
 
             if (
                 currentQuestion.correct.includes(
