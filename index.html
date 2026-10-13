@@ -971,7 +971,7 @@
 </section>
 
         </main>
-
+    
 <!-- SPELLING WORKSHOP SCREEN -->
 <section class="spelling-workshop-screen" id="spellingWorkshopScreen" style="display: none;">
 
@@ -982,10 +982,22 @@
         class="spelling-workshop-background"
     >
 
-    <!-- Back button -->
     <button class="back-button" id="backFromSpellingWorkshop">
         ← Back to Castle
     </button>
+
+    <!-- Floating spelling game content -->
+    <div class="spelling-game-area" id="spellingGameArea">
+
+        <h1 class="spelling-title">Spelling Workshop</h1>
+
+        <p class="spelling-instruction" id="spellingInstruction">
+            Look at the word and build it with letters!
+        </p>
+
+        <div class="spelling-question" id="spellingQuestion">
+            CAT
+        </div>
 
         <div class="spelling-answer-area" id="spellingAnswerArea">
         </div>
@@ -996,9 +1008,8 @@
         <p class="spelling-feedback" id="spellingFeedback" aria-live="polite"></p>
 
     </div>
-
 </section>
-   
+
 </body>
     <script src="script.js"></script>
 </html>
