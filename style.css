@@ -2093,3 +2093,29 @@ img {
         gap: 8px;
     }
 }
+
+/* =================================
+   DISCOVERY WOODS: AGES 2–4
+================================= */
+
+.discovery-woods-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #173d32;
+}
+
+.discovery-woods-background {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.discovery-woods-screen .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
