@@ -2707,3 +2707,112 @@ backToPictureMenu.addEventListener("click", function () {
     picturePictureGame.style.display = "none";
     picturePictureMenu.style.display = "flex";
 });
+
+/* ========================================
+   SPELLING WORKSHOP GAME
+======================================== */
+
+const spellingWords = [
+    { word: "CAT", hint: "🐱" },
+    { word: "SUN", hint: "☀️" },
+    { word: "BUNNY", hint: "🐰" },
+    { word: "HAT", hint: "👒" },
+    { word: "PIG", hint: "🐷" },
+    { word: "FOX", hint: "🦊" },
+    { word: "CUP", hint: "🥤" },
+    { word: "BEE", hint: "🐝" }
+];
+
+let currentSpellingWord = null;
+let selectedSpellingLetters = [];
+
+function startSpellingRound() {
+    const answerArea = document.getElementById("spellingAnswerArea");
+    const choicesArea = document.getElementById("spellingLetterChoices");
+    const feedback = document.getElementById("spellingFeedback");
+
+    if (!answerArea || !choicesArea || !feedback) return;
+
+    currentSpellingWord =
+        spellingWords[Math.floor(Math.random() * spellingWords.length)];
+
+    selectedSpellingLetters = [];
+    answerArea.innerHTML = "";
+    choicesArea.innerHTML = "";
+    feedback.textContent = "";
+
+    const letters = currentSpellingWord.word.split("");
+
+    // Mix the letters so the child must find the correct order.
+    const shuffledLetters = [...letters].sort(() => Math.random() - 0.5);
+
+    shuffledLetters.forEach((letter, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "spelling-letter-choice";
+        button.textContent = letter;
+        button.setAttribute("aria-label", `Letter ${letter}`);
+
+        button.addEventListener("click", () => {
+            if (button.disabled) return;
+
+            button.disabled = true;
+            selectedSpellingLetters.push({ letter, button });
+
+            const tile = document.createElement("button");
+            tile.type = "button";
+            tile.className = "spelling-letter-tile";
+            tile.textContent = letter;
+            tile.setAttribute("aria-label", `Remove letter ${letter}`);
+
+            tile.addEventListener("click", () => {
+                selectedSpellingLetters =
+                    selectedSpellingLetters.filter(item => item.button !== button);
+
+                button.disabled = false;
+                tile.remove();
+                checkSpellingAnswer();
+            });
+
+            answerArea.appendChild(tile);
+            checkSpellingAnswer();
+        });
+
+        choicesArea.appendChild(button);
+    });
+
+    feedback.textContent = currentSpellingWord.hint;
+}
+
+function checkSpellingAnswer() {
+    const feedback = document.getElementById("spellingFeedback");
+
+    if (!currentSpellingWord || !feedback) return;
+
+    const answer = selectedSpellingLetters
+        .map(item => item.letter)
+        .join("");
+
+    if (answer.length < currentSpellingWord.word.length) return;
+
+    if (answer === currentSpellingWord.word) {
+        feedback.textContent = "🌟 Wonderful spelling!";
+        
+        if (typeof awardLearningStars === "function") {
+            awardLearningStars(1, "Spelling Workshop");
+        }
+
+        if (typeof startConfettiRain === "function") {
+            startConfettiRain();
+        }
+
+        setTimeout(startSpellingRound, 1600);
+    } else {
+        feedback.textContent = "💜 Try again! Tap a letter below to change it.";
+    }
+}
+
+// Prepare the first round when the spelling screen opens.
+if (typeof spellingButton !== "undefined" && spellingButton) {
+    spellingButton.addEventListener("click", startSpellingRound);
+}
