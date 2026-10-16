@@ -2874,3 +2874,87 @@ function checkSpellingAnswer() {
 if (typeof spellingButton !== "undefined" && spellingButton) {
     spellingButton.addEventListener("click", startSpellingRound);
 }
+
+
+/* =================================
+   ANIMAL SOUNDS GAME LOGIC
+================================= */
+
+const playAnimalSoundButton = document.getElementById("playAnimalSoundButton");
+const animalSoundsFeedback = document.getElementById("animalSoundsFeedback");
+const animalChoices = document.querySelectorAll(".animal-choice");
+
+const animalSoundQuestions = [
+    {
+        animal: "cow",
+        sound: "Moo! Moo!",
+        message: "The cow says moo!"
+    },
+    {
+        animal: "duck",
+        sound: "Quack! Quack!",
+        message: "The duck says quack!"
+    },
+    {
+        animal: "owl",
+        sound: "Hoo! Hoo!",
+        message: "The owl says hoo!"
+    }
+];
+
+let currentAnimalQuestion = null;
+
+function playCurrentAnimalSound() {
+    if (!currentAnimalQuestion) {
+        const randomIndex = Math.floor(
+            Math.random() * animalSoundQuestions.length
+        );
+
+        currentAnimalQuestion = animalSoundQuestions[randomIndex];
+    }
+
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+
+        const speech = new SpeechSynthesisUtterance(
+            currentAnimalQuestion.sound
+        );
+
+        speech.rate = 0.8;
+        window.speechSynthesis.speak(speech);
+    } else {
+        animalSoundsFeedback.textContent =
+            currentAnimalQuestion.sound;
+    }
+}
+
+playAnimalSoundButton.addEventListener("click", function () {
+    playCurrentAnimalSound();
+});
+
+animalChoices.forEach(function (button) {
+    button.addEventListener("click", function () {
+        if (!currentAnimalQuestion) {
+            animalSoundsFeedback.textContent =
+                "Tap Play Animal Sound first!";
+            return;
+        }
+
+        const selectedAnimal = button.dataset.animal;
+
+        if (selectedAnimal === currentAnimalQuestion.animal) {
+            animalSoundsFeedback.textContent =
+                "Wonderful! " + currentAnimalQuestion.message;
+
+            if (typeof awardLearningStars === "function") {
+                awardLearningStars(1, "Animal Sounds");
+            }
+
+            currentAnimalQuestion = null;
+        } else {
+            animalSoundsFeedback.textContent =
+                "Good try! Listen again and try another animal.";
+        }
+    });
+});
+
