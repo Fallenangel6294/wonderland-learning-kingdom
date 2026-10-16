@@ -17,6 +17,12 @@ const discoveryWoodsButton = document.getElementById("discoveryWoodsButton");
 
 const backFromDiscoveryWoods = document.getElementById("backFromDiscoveryWoods");
 
+const animalFriendsScreen = document.getElementById("animalFriendsScreen");
+
+const animalFriendsButton = document.getElementById("animalFriendsButton");
+
+const backFromAnimalFriends = document.getElementById("backFromAnimalFriends");
+
 const spellingButton = document.getElementById("spellingButton");
 
 const spellingWorkshopScreen = document.getElementById("spellingWorkshopScreen");
@@ -111,6 +117,18 @@ discoveryWoodsButton.addEventListener("click", function () {
 backFromDiscoveryWoods.addEventListener("click", function () {
     discoveryWoodsScreen.style.display = "none";
     kingdomScreen.style.display = "block";
+});
+
+// Enter Animal Friends
+animalFriendsButton.addEventListener("click", function () {
+    discoveryWoodsScreen.style.display = "none";
+    animalFriendsScreen.style.display = "block";
+});
+
+// Return to Discovery Woods
+backFromAnimalFriends.addEventListener("click", function () {
+    animalFriendsScreen.style.display = "none";
+    discoveryWoodsScreen.style.display = "block";
 });
 
 storyTimeButton.addEventListener("click", function () {
