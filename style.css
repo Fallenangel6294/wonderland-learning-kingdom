@@ -2187,12 +2187,24 @@ img {
 }
 
 .animal-friends-activities button {
-    padding: 14px 22px;
-    border: 3px solid #d7b36a;
-    border-radius: 18px;
-    background: #fff3c4;
-    color: #49321e;
+    padding: 16px 24px;
+    border: 3px solid #f4d58d;
+    border-radius: 20px;
+    background: rgba(255, 247, 218, 0.96);
+    color: #31543a;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 5px 0 #b88b4a;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.animal-friends-activities button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 #b88b4a;
+}
+
+.animal-friends-activities button:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #b88b4a;
 }
