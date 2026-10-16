@@ -23,6 +23,12 @@ const animalFriendsButton = document.getElementById("animalFriendsButton");
 
 const backFromAnimalFriends = document.getElementById("backFromAnimalFriends");
 
+const animalSoundsScreen = document.getElementById("animalSoundsScreen");
+
+const animalSoundsButton = document.getElementById("animalSoundsButton");
+
+const backFromAnimalSounds = document.getElementById("backFromAnimalSounds");
+
 const spellingButton = document.getElementById("spellingButton");
 
 const spellingWorkshopScreen = document.getElementById("spellingWorkshopScreen");
@@ -129,6 +135,18 @@ animalFriendsButton.addEventListener("click", function () {
 backFromAnimalFriends.addEventListener("click", function () {
     animalFriendsScreen.style.display = "none";
     discoveryWoodsScreen.style.display = "block";
+});
+
+// Open Animal Sounds
+animalSoundsButton.addEventListener("click", function () {
+    animalFriendsScreen.style.display = "none";
+    animalSoundsScreen.style.display = "block";
+});
+
+// Return to Animal Friends
+backFromAnimalSounds.addEventListener("click", function () {
+    animalSoundsScreen.style.display = "none";
+    animalFriendsScreen.style.display = "block";
 });
 
 storyTimeButton.addEventListener("click", function () {
