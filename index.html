@@ -1080,6 +1080,46 @@
 
 </main>
 
+<!-- ANIMAL SOUNDS GAME -->
+<main class="animal-sounds-screen" id="animalSoundsScreen">
+
+    <button
+        class="back-button animal-sounds-back"
+        id="backFromAnimalSounds"
+        aria-label="Return to Animal Friends"
+    >
+        ← Back to Animal Friends
+    </button>
+
+    <img
+        src="animal-sounds.png"
+        alt="Enchanted forest filled with friendly wildlife"
+        class="animal-sounds-background"
+    >
+
+    <h1 class="animal-sounds-title">Animal Sounds</h1>
+
+    <p class="animal-sounds-instructions">
+        Listen carefully! Which animal makes this sound?
+    </p>
+
+    <button
+        id="playAnimalSoundButton"
+        class="play-animal-sound-button"
+    >
+        Play Animal Sound
+    </button>
+
+    <div class="animal-sound-choices">
+        <button class="animal-choice" data-animal="cow">Cow</button>
+        <button class="animal-choice" data-animal="duck">Duck</button>
+        <button class="animal-choice" data-animal="owl">Owl</button>
+    </div>
+
+    <p id="animalSoundsFeedback" aria-live="polite"></p>
+
+</main>
+
 </body>
     <script src="script.js"></script>
 </html>
