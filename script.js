@@ -2876,42 +2876,111 @@ if (typeof spellingButton !== "undefined" && spellingButton) {
 }
 
 
+
 /* =================================
-   ANIMAL SOUNDS GAME LOGIC
+   ANIMAL SOUNDS GAME
+   20 animals, 5 questions per round
 ================================= */
 
 const playAnimalSoundButton = document.getElementById("playAnimalSoundButton");
 const animalSoundsFeedback = document.getElementById("animalSoundsFeedback");
-const animalChoices = document.querySelectorAll(".animal-choice");
+const animalSoundChoices = document.getElementById("animalSoundChoices");
+const animalQuestionCounter = document.getElementById("animalQuestionCounter");
 
 const animalSoundQuestions = [
-    {
-        animal: "cow",
-        sound: "Moo! Moo!",
-        message: "The cow says moo!"
-    },
-    {
-        animal: "duck",
-        sound: "Quack! Quack!",
-        message: "The duck says quack!"
-    },
-    {
-        animal: "owl",
-        sound: "Hoo! Hoo!",
-        message: "The owl says hoo!"
-    }
+    { animal: "cow", name: "Cow", sound: "Moo! Moo!" },
+    { animal: "pig", name: "Pig", sound: "Oink! Oink!" },
+    { animal: "horse", name: "Horse", sound: "Neigh!" },
+    { animal: "sheep", name: "Sheep", sound: "Baa! Baa!" },
+    { animal: "goat", name: "Goat", sound: "Maa! Maa!" },
+    { animal: "chicken", name: "Chicken", sound: "Cluck! Cluck!" },
+    { animal: "duck", name: "Duck", sound: "Quack! Quack!" },
+    { animal: "owl", name: "Owl", sound: "Hoo! Hoo!" },
+    { animal: "fox", name: "Fox", sound: "Yip! Yip!" },
+    { animal: "wolf", name: "Wolf", sound: "Howl!" },
+    { animal: "lion", name: "Lion", sound: "Roar!" },
+    { animal: "elephant", name: "Elephant", sound: "Trumpet!" },
+    { animal: "monkey", name: "Monkey", sound: "Ooh! Ooh! Ah! Ah!" },
+    { animal: "frog", name: "Frog", sound: "Ribbit! Ribbit!" },
+    { animal: "songbird", name: "Songbird", sound: "Tweet! Tweet!" },
+    { animal: "dog", name: "Dog", sound: "Woof! Woof!" },
+    { animal: "cat", name: "Cat", sound: "Meow!" },
+    { animal: "turkey", name: "Turkey", sound: "Gobble! Gobble!" },
+    { animal: "rooster", name: "Rooster", sound: "Cock-a-doodle-doo!" },
+    { animal: "donkey", name: "Donkey", sound: "Hee-haw!" }
 ];
 
+let animalRoundQuestions = [];
 let currentAnimalQuestion = null;
+let animalQuestionIndex = 0;
+let animalCorrectAnswers = 0;
+let animalQuestionAnswered = false;
+
+function shuffleAnimalQuestions(questions) {
+    const shuffled = [...questions];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+}
+
+function startAnimalSoundsRound() {
+    animalRoundQuestions = shuffleAnimalQuestions(animalSoundQuestions).slice(0, 5);
+    animalQuestionIndex = 0;
+    animalCorrectAnswers = 0;
+
+    showAnimalSoundQuestion();
+}
+
+function showAnimalSoundQuestion() {
+    if (animalQuestionIndex >= animalRoundQuestions.length) {
+        finishAnimalSoundsRound();
+        return;
+    }
+
+    currentAnimalQuestion = animalRoundQuestions[animalQuestionIndex];
+    animalQuestionAnswered = false;
+
+    animalQuestionCounter.textContent =
+        `Question ${animalQuestionIndex + 1} of 5`;
+
+    animalSoundsFeedback.textContent = "";
+
+    playAnimalSoundButton.textContent = "Play Animal Sound";
+
+    const wrongAnswers = shuffleAnimalQuestions(
+        animalSoundQuestions.filter(
+            question => question.animal !== currentAnimalQuestion.animal
+        )
+    ).slice(0, 2);
+
+    const choices = shuffleAnimalQuestions([
+        currentAnimalQuestion,
+        ...wrongAnswers
+    ]);
+
+    animalSoundChoices.innerHTML = "";
+
+    choices.forEach(function (animal) {
+        const button = document.createElement("button");
+
+        button.className = "animal-choice";
+        button.textContent = animal.name;
+        button.dataset.animal = animal.animal;
+
+        button.addEventListener("click", function () {
+            answerAnimalSoundQuestion(animal.animal);
+        });
+
+        animalSoundChoices.appendChild(button);
+    });
+}
 
 function playCurrentAnimalSound() {
-    if (!currentAnimalQuestion) {
-        const randomIndex = Math.floor(
-            Math.random() * animalSoundQuestions.length
-        );
-
-        currentAnimalQuestion = animalSoundQuestions[randomIndex];
-    }
+    if (!currentAnimalQuestion) return;
 
     if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
@@ -2928,33 +2997,45 @@ function playCurrentAnimalSound() {
     }
 }
 
+function answerAnimalSoundQuestion(selectedAnimal) {
+    if (animalQuestionAnswered || !currentAnimalQuestion) return;
+
+    if (selectedAnimal === currentAnimalQuestion.animal) {
+        animalQuestionAnswered = true;
+        animalCorrectAnswers++;
+
+        animalSoundsFeedback.textContent =
+            `Wonderful! That's the ${currentAnimalQuestion.name}!`;
+
+        if (typeof awardLearningStars === "function") {
+            awardLearningStars(1, "Animal Sounds");
+        }
+
+        animalQuestionIndex++;
+
+        setTimeout(showAnimalSoundQuestion, 1200);
+    } else {
+        animalSoundsFeedback.textContent =
+            "Good try! Listen again and choose another animal.";
+    }
+}
+
+function finishAnimalSoundsRound() {
+    currentAnimalQuestion = null;
+
+    animalQuestionCounter.textContent = "Round complete!";
+
+    animalSoundsFeedback.textContent =
+        `You got ${animalCorrectAnswers} out of 5 questions right!`;
+
+    playAnimalSoundButton.textContent = "Play Another Round";
+    animalSoundsFeedback.setAttribute("role", "status");
+}
+
 playAnimalSoundButton.addEventListener("click", function () {
-    playCurrentAnimalSound();
+    if (!currentAnimalQuestion) {
+        startAnimalSoundsRound();
+    } else {
+        playCurrentAnimalSound();
+    }
 });
-
-animalChoices.forEach(function (button) {
-    button.addEventListener("click", function () {
-        if (!currentAnimalQuestion) {
-            animalSoundsFeedback.textContent =
-                "Tap Play Animal Sound first!";
-            return;
-        }
-
-        const selectedAnimal = button.dataset.animal;
-
-        if (selectedAnimal === currentAnimalQuestion.animal) {
-            animalSoundsFeedback.textContent =
-                "Wonderful! " + currentAnimalQuestion.message;
-
-            if (typeof awardLearningStars === "function") {
-                awardLearningStars(1, "Animal Sounds");
-            }
-
-            currentAnimalQuestion = null;
-        } else {
-            animalSoundsFeedback.textContent =
-                "Good try! Listen again and try another animal.";
-        }
-    });
-});
-
