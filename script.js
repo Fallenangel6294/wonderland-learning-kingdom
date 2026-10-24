@@ -2965,11 +2965,40 @@ function showAnimalSoundQuestion() {
     animalSoundChoices.innerHTML = "";
 
     choices.forEach(function (animal) {
-        const button = document.createElement("button");
+       const button = document.createElement("button");
 
-        button.className = "animal-choice";
-        button.textContent = animal.name;
-        button.dataset.animal = animal.animal;
+const animalEmojis = {
+    cow: "🐮",
+    pig: "🐷",
+    horse: "🐴",
+    sheep: "🐑",
+    goat: "🐐",
+    chicken: "🐔",
+    duck: "🦆",
+    owl: "🦉",
+    fox: "🦊",
+    wolf: "🐺",
+    lion: "🦁",
+    elephant: "🐘",
+    monkey: "🐒",
+    frog: "🐸",
+    songbird: "🐦",
+    dog: "🐕",
+    cat: "🐈",
+    turkey: "🦃",
+    rooster: "🐓",
+    donkey: "🫏"
+};
+
+button.className = "animal-choice";
+button.innerHTML =
+    '<span class="animal-choice-picture">' +
+    (animalEmojis[animal.animal] || "🐾") +
+    '</span><span class="animal-choice-name">' +
+    animal.name +
+    '</span>';
+
+button.dataset.animal = animal.animal;
 
         button.addEventListener("click", function () {
             answerAnimalSoundQuestion(animal.animal);
