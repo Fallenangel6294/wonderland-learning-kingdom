@@ -3069,3 +3069,195 @@ playAnimalSoundButton.addEventListener("click", function () {
     }
 });
 
+
+// ===================================
+// WHERE ANIMALS LIVE GAME
+// ===================================
+
+const animalHomesScreen = document.getElementById("animalHomesScreen");
+const animalHomesButton = document.getElementById("animalHomesButton");
+const backFromAnimalHomes = document.getElementById("backFromAnimalHomes");
+
+const animalHomesQuestion = document.getElementById("animalHomesQuestion");
+const animalHomesQuestionCounter = document.getElementById("animalHomesQuestionCounter");
+const animalHomesChoices = document.getElementById("animalHomesChoices");
+const animalHomesFeedback = document.getElementById("animalHomesFeedback");
+const startAnimalHomesButton = document.getElementById("startAnimalHomesButton");
+
+// Animal and habitat question bank
+
+const animalHomesQuestions = [
+    { animal: "🐦", name: "Bird", home: "Nest", emoji: "🪺" },
+    { animal: "🐰", name: "Rabbit", home: "Burrow", emoji: "🕳️" },
+    { animal: "🦊", name: "Fox", home: "Den", emoji: "🏡" },
+    { animal: "🐻", name: "Bear", home: "Cave", emoji: "⛰️" },
+    { animal: "🐝", name: "Bee", home: "Hive", emoji: "🍯" },
+    { animal: "🐜", name: "Ant", home: "Anthill", emoji: "🐜" },
+    { animal: "🐿️", name: "Squirrel", home: "Tree Hollow", emoji: "🌳" },
+    { animal: "🦉", name: "Owl", home: "Tree Hollow", emoji: "🌳" },
+    { animal: "🐴", name: "Horse", home: "Stable", emoji: "🏠" },
+    { animal: "🐮", name: "Cow", home: "Barn", emoji: "🏚️" },
+    { animal: "🐷", name: "Pig", home: "Pigpen", emoji: "🐖" },
+    { animal: "🐔", name: "Chicken", home: "Coop", emoji: "🏠" },
+    { animal: "🐑", name: "Sheep", home: "Fold", emoji: "🐑" },
+    { animal: "🐐", name: "Goat", home: "Shelter", emoji: "🏡" },
+    { animal: "🦆", name: "Duck", home: "Pond", emoji: "🪷" },
+    { animal: "🐸", name: "Frog", home: "Pond", emoji: "🪷" },
+    { animal: "🐢", name: "Turtle", home: "Pond", emoji: "🌊" },
+    { animal: "🦇", name: "Bat", home: "Cave", emoji: "⛰️" },
+    { animal: "🦁", name: "Lion", home: "Den", emoji: "🏡" },
+    { animal: "🐺", name: "Wolf", home: "Den", emoji: "🏡" }
+];
+
+let animalHomesRound = [];
+let currentAnimalHomeQuestion = null;
+let animalHomesIndex = 0;
+let animalHomesCorrect = 0;
+let animalHomesAnswered = false;
+
+// Shuffle questions and answers
+
+function shuffleAnimalHomes(items) {
+    return [...items].sort(() => Math.random() - 0.5);
+}
+
+// Start a new round
+
+function startAnimalHomesRound() {
+    animalHomesRound = shuffleAnimalHomes(animalHomesQuestions).slice(0, 5);
+
+    animalHomesIndex = 0;
+    animalHomesCorrect = 0;
+
+    startAnimalHomesButton.style.display = "none";
+
+    showAnimalHomesQuestion();
+}
+
+// Display a question
+
+function showAnimalHomesQuestion() {
+    if (animalHomesIndex >= animalHomesRound.length) {
+        finishAnimalHomesRound();
+        return;
+    }
+
+    currentAnimalHomeQuestion = animalHomesRound[animalHomesIndex];
+    animalHomesAnswered = false;
+
+    animalHomesQuestion.textContent = currentAnimalHomeQuestion.animal;
+
+    animalHomesQuestionCounter.textContent =
+        `Question ${animalHomesIndex + 1} of 5`;
+
+    animalHomesFeedback.textContent = "";
+
+    // Find two different wrong answers
+
+    const wrongHomes = shuffleAnimalHomes(
+        animalHomesQuestions
+            .filter(q => q.home !== currentAnimalHomeQuestion.home)
+            .map(q => ({
+                home: q.home,
+                emoji: q.emoji
+            }))
+            .filter((item, index, array) =>
+                array.findIndex(other => other.home === item.home) === index
+            )
+    ).slice(0, 2);
+
+    // Mix the correct answer with the wrong answers
+
+    const choices = shuffleAnimalHomes([
+        {
+            home: currentAnimalHomeQuestion.home,
+            emoji: currentAnimalHomeQuestion.emoji
+        },
+        ...wrongHomes
+    ]);
+
+    animalHomesChoices.innerHTML = "";
+
+    choices.forEach(function(choice) {
+        const button = document.createElement("button");
+
+        button.className = "animal-homes-choice";
+
+        button.innerHTML =
+            '<span class="animal-homes-choice-picture">' +
+            choice.emoji +
+            '</span>' +
+            '<span>' + choice.home + '</span>';
+
+        button.addEventListener("click", function() {
+            answerAnimalHomesQuestion(choice.home);
+        });
+
+        animalHomesChoices.appendChild(button);
+    });
+}
+
+// Check the child's answer
+
+function answerAnimalHomesQuestion(selectedHome) {
+    if (animalHomesAnswered || !currentAnimalHomeQuestion) {
+        return;
+    }
+
+    if (selectedHome === currentAnimalHomeQuestion.home) {
+        animalHomesAnswered = true;
+        animalHomesCorrect++;
+
+        animalHomesFeedback.textContent =
+            `Wonderful! The ${currentAnimalHomeQuestion.name} lives in a ${currentAnimalHomeQuestion.home}!`;
+
+        if (typeof awardLearningStars === "function") {
+            awardLearningStars(1, "Where Animals Live");
+        }
+
+        animalHomesIndex++;
+
+        setTimeout(showAnimalHomesQuestion, 1600);
+
+    } else {
+        animalHomesFeedback.textContent =
+            "Good try! Let's find the right home!";
+    }
+}
+
+// Finish the round
+
+function finishAnimalHomesRound() {
+    currentAnimalHomeQuestion = null;
+
+    animalHomesQuestion.textContent = "🏆";
+
+    animalHomesQuestionCounter.textContent = "Adventure Complete!";
+
+    animalHomesChoices.innerHTML = "";
+
+    animalHomesFeedback.textContent =
+        `You got ${animalHomesCorrect} out of 5 questions right!`;
+
+    startAnimalHomesButton.textContent = "Play Again";
+
+    startAnimalHomesButton.style.display = "block";
+}
+
+// Start button
+
+startAnimalHomesButton.addEventListener("click", startAnimalHomesRound);
+
+// Open Where Animals Live
+
+animalHomesButton.addEventListener("click", function() {
+    animalFriendsScreen.style.display = "none";
+    animalHomesScreen.style.display = "block";
+});
+
+// Return to Animal Friends
+
+backFromAnimalHomes.addEventListener("click", function() {
+    animalHomesScreen.style.display = "none";
+    animalFriendsScreen.style.display = "block";
+});
