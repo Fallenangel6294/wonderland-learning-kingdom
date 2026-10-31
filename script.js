@@ -3261,3 +3261,228 @@ backFromAnimalHomes.addEventListener("click", function() {
     animalHomesScreen.style.display = "none";
     animalFriendsScreen.style.display = "block";
 });
+
+
+// ===================================
+// MATCH THE ANIMALS GAME
+// ===================================
+
+const animalMatchScreen = document.getElementById("animalMatchScreen");
+const animalMatchButton = document.getElementById("animalMatchButton");
+const backFromAnimalMatch = document.getElementById("backFromAnimalMatch");
+
+const animalMatchGrid = document.getElementById("animalMatchGrid");
+const animalMatchCounter = document.getElementById("animalMatchCounter");
+const animalMatchFeedback = document.getElementById("animalMatchFeedback");
+const animalMatchInstructions = document.getElementById("animalMatchInstructions");
+const startAnimalMatchButton = document.getElementById("startAnimalMatchButton");
+
+// Animal collection
+
+const animalMatchAnimals = [
+    { name: "Cow", emoji: "🐮" },
+    { name: "Pig", emoji: "🐷" },
+    { name: "Horse", emoji: "🐴" },
+    { name: "Sheep", emoji: "🐑" },
+    { name: "Goat", emoji: "🐐" },
+    { name: "Chicken", emoji: "🐔" },
+    { name: "Duck", emoji: "🦆" },
+    { name: "Owl", emoji: "🦉" },
+    { name: "Fox", emoji: "🦊" },
+    { name: "Wolf", emoji: "🐺" },
+    { name: "Lion", emoji: "🦁" },
+    { name: "Elephant", emoji: "🐘" },
+    { name: "Monkey", emoji: "🐒" },
+    { name: "Frog", emoji: "🐸" },
+    { name: "Bird", emoji: "🐦" },
+    { name: "Dog", emoji: "🐶" },
+    { name: "Cat", emoji: "🐱" },
+    { name: "Rabbit", emoji: "🐰" },
+    { name: "Turtle", emoji: "🐢" },
+    { name: "Bear", emoji: "🐻" }
+];
+
+// Game variables
+
+let animalMatchCards = [];
+let animalMatchFirstCard = null;
+let animalMatchSecondCard = null;
+let animalMatchPairsFound = 0;
+let animalMatchLocked = false;
+
+// Shuffle items
+
+function shuffleAnimalMatch(items) {
+    return [...items].sort(() => Math.random() - 0.5);
+}
+
+// Start a new round
+
+function startAnimalMatchRound() {
+    const selectedAnimals = shuffleAnimalMatch(animalMatchAnimals).slice(0, 6);
+
+    animalMatchCards = [];
+
+    selectedAnimals.forEach(function(animal, index) {
+        animalMatchCards.push({
+            name: animal.name,
+            emoji: animal.emoji,
+            pairId: index
+        });
+
+        animalMatchCards.push({
+            name: animal.name,
+            emoji: animal.emoji,
+            pairId: index
+        });
+    });
+
+    animalMatchCards = shuffleAnimalMatch(animalMatchCards);
+
+    animalMatchFirstCard = null;
+    animalMatchSecondCard = null;
+    animalMatchPairsFound = 0;
+    animalMatchLocked = false;
+
+    animalMatchFeedback.textContent = "Find all six matching pairs!";
+    animalMatchInstructions.textContent = "Find two animals that match!";
+    animalMatchCounter.textContent = "Matches: 0 of 6";
+
+    startAnimalMatchButton.style.display = "none";
+
+    displayAnimalMatchCards();
+}
+
+// Display cards
+
+function displayAnimalMatchCards() {
+    animalMatchGrid.innerHTML = "";
+
+    animalMatchCards.forEach(function(animal, index) {
+        const button = document.createElement("button");
+
+        button.className = "animal-match-card";
+        button.textContent = "❔";
+        button.setAttribute("aria-label", "Hidden animal card");
+
+        button.addEventListener("click", function() {
+            flipAnimalMatchCard(button, animal, index);
+        });
+
+        animalMatchGrid.appendChild(button);
+    });
+}
+
+// Flip a card
+
+function flipAnimalMatchCard(button, animal, index) {
+    if (animalMatchLocked) return;
+    if (button.classList.contains("matched")) return;
+    if (button.classList.contains("flipped")) return;
+
+    button.classList.add("flipped");
+    button.textContent = animal.emoji;
+    button.setAttribute("aria-label", animal.name);
+
+    if (animalMatchFirstCard === null) {
+        animalMatchFirstCard = {
+            button: button,
+            animal: animal
+        };
+
+        return;
+    }
+
+    animalMatchSecondCard = {
+        button: button,
+        animal: animal
+    };
+
+    checkAnimalMatch();
+}
+
+// Check whether two cards match
+
+function checkAnimalMatch() {
+    animalMatchLocked = true;
+
+    if (animalMatchFirstCard.animal.pairId === animalMatchSecondCard.animal.pairId) {
+
+        animalMatchFirstCard.button.classList.add("matched");
+        animalMatchSecondCard.button.classList.add("matched");
+
+        animalMatchFirstCard.button.disabled = true;
+        animalMatchSecondCard.button.disabled = true;
+
+        animalMatchPairsFound++;
+
+        animalMatchCounter.textContent =
+            `Matches: ${animalMatchPairsFound} of 6`;
+
+        animalMatchFeedback.textContent =
+            `Wonderful! You matched the ${animalMatchFirstCard.animal.name}!`;
+
+        if (typeof awardLearningStars === "function") {
+            awardLearningStars(1, "Match the Animals");
+        }
+
+        animalMatchFirstCard = null;
+        animalMatchSecondCard = null;
+
+        animalMatchLocked = false;
+
+        if (animalMatchPairsFound === 6) {
+            setTimeout(finishAnimalMatchRound, 800);
+        }
+
+    } else {
+
+        animalMatchFeedback.textContent = "Not a match! Try another pair!";
+
+        setTimeout(function() {
+            animalMatchFirstCard.button.textContent = "❔";
+            animalMatchSecondCard.button.textContent = "❔";
+
+            animalMatchFirstCard.button.classList.remove("flipped");
+            animalMatchSecondCard.button.classList.remove("flipped");
+
+            animalMatchFirstCard.button.setAttribute("aria-label", "Hidden animal card");
+            animalMatchSecondCard.button.setAttribute("aria-label", "Hidden animal card");
+
+            animalMatchFirstCard = null;
+            animalMatchSecondCard = null;
+
+            animalMatchLocked = false;
+
+        }, 1000);
+    }
+}
+
+// Finish the round
+
+function finishAnimalMatchRound() {
+    animalMatchInstructions.textContent = "You found every animal pair!";
+    animalMatchFeedback.textContent = "Amazing work! You are an Animal Matching Champion!";
+    animalMatchCounter.textContent = "6 of 6 pairs matched!";
+
+    startAnimalMatchButton.textContent = "Play Again";
+    startAnimalMatchButton.style.display = "block";
+}
+
+// Start button
+
+startAnimalMatchButton.addEventListener("click", startAnimalMatchRound);
+
+// Open Match the Animals
+
+animalMatchButton.addEventListener("click", function() {
+    animalFriendsScreen.style.display = "none";
+    animalMatchScreen.style.display = "block";
+});
+
+// Return to Animal Friends
+
+backFromAnimalMatch.addEventListener("click", function() {
+    animalMatchScreen.style.display = "none";
+    animalFriendsScreen.style.display = "block";
+});
