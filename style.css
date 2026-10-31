@@ -2398,3 +2398,138 @@ img {
 .animal-choice:active {
     transform: translateY(2px);
 }
+
+
+/* =================================
+   WHERE ANIMALS LIVE
+================================= */
+
+.animal-homes-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #173d32;
+}
+
+.animal-homes-background {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.animal-homes-title {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 12px 25px;
+    border-radius: 18px;
+    background: rgba(255, 244, 210, 0.95);
+    color: #49321e;
+    font-size: clamp(25px, 4vw, 42px);
+    text-align: center;
+    z-index: 10;
+}
+
+.animal-homes-instructions {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px #173d32;
+    z-index: 10;
+}
+
+.animal-homes-question {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 100px;
+    z-index: 10;
+}
+
+#animalHomesQuestionCounter {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.animal-homes-choices {
+    position: absolute;
+    left: 50%;
+    bottom: 12%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    width: 94%;
+    z-index: 10;
+}
+
+.animal-homes-choice {
+    width: 150px;
+    min-height: 140px;
+    border: 4px solid #e9c77b;
+    border-radius: 24px;
+    background: #fff4d5;
+    color: #49321e;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #714526;
+}
+
+.animal-homes-choice-picture {
+    display: block;
+    font-size: 55px;
+}
+
+#animalHomesFeedback {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10;
+}
+
+#startAnimalHomesButton {
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 28px;
+    border: 4px solid #e9c77b;
+    border-radius: 20px;
+    background: #367b3e;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.animal-homes-screen .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+}
