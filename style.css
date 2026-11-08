@@ -2147,6 +2147,17 @@ img {
     width: 27%;
     height: 16%;
 }
+
+
+/* Colorful Nature clickable map area */
+.colorful-nature-button {
+    position: absolute;
+    left: 53%;
+    top: 21%;
+    width: 30%;
+    height: 25%;
+}
+
 /* =================================
    ANIMAL FRIENDS: AGES 2–4
 ================================= */
