@@ -3486,3 +3486,28 @@ backFromAnimalMatch.addEventListener("click", function() {
     animalMatchScreen.style.display = "none";
     animalFriendsScreen.style.display = "block";
 });
+
+// ===================================
+// COLORFUL NATURE NAVIGATION
+// ===================================
+
+const colorfulNatureScreen = document.getElementById("colorfulNatureScreen");
+const backFromColorfulNature = document.getElementById("backFromColorfulNature");
+
+// Open Colorful Nature from Discovery Woods
+
+const colorfulNatureMapButton = document.getElementById("colorfulNatureButton");
+
+if (colorfulNatureMapButton) {
+    colorfulNatureMapButton.addEventListener("click", function() {
+        discoveryWoodsScreen.style.display = "none";
+        colorfulNatureScreen.style.display = "block";
+    });
+}
+
+// Return to Discovery Woods
+
+backFromColorfulNature.addEventListener("click", function() {
+    colorfulNatureScreen.style.display = "none";
+    discoveryWoodsScreen.style.display = "block";
+});
